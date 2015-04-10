@@ -6,9 +6,34 @@
     <title>JaneWeb</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script type="text/javascript" src="external_js/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="jquery 1.2.3.js"></script>
     <script type="text/javascript" src="model.js"></script>
     <script type="text/javascript" src="controller.js"></script>
+
+    <script type="text/javascript">
+
+      // This allows the Javascript code inside this block to only run when the page
+      // has finished loading in the browser.
+      $(document).ready(function() {
+
+        //clicking the add website button should start to add a website
+        $("#add-website").click(function (e) {
+          console.log("clicked add-website");
+        });
+
+        //clicking the add note button should start to create a new note
+        $("#add-note").click(function (e) {
+          console.log("clicked add-note");
+        });
+
+        //clicking the add checklist button should start a new checklist
+        $("#add-checklist").click(function (e) {
+          console.log("clicked add-checklist");
+        });
+
+      });
+    </script>
   </head>
 
   <body>
@@ -24,13 +49,13 @@
 
       <tr>
         <td>
-          <div class="button" id="add-note"></div>
+          <div class="button" id="add-note"><img src="images/add_note_button.jpg" width="200" height="200"/></div>
         </td>
       </tr>
 
       <tr>
         <td>
-          <div class="button" id="add-checklist"></div>
+          <div class="button" id="add-checklist"><img src="images/add_checklist_button.jpg" width="200" height="200"/></div>
         </td>
       </tr>
 

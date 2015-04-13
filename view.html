@@ -24,7 +24,36 @@
       // This allows the Javascript code inside this block to only run when the page
       // has finished loading in the browser.
       $(document).ready(function() {
+		
+		var boardNames = [];
+		document.getElementById("board-switcher").disabled = false;
 
+		var newName = prompt("Welcome to JaneWeb! Who should we create a board for?", "e.g. Tom");
+		if(newName != null)
+		{
+			document.getElementById("board-name").innerHTML = newName + "'s Board";
+			boardNames.push(newName);
+			$("#board-switcher").append("<option>" + newName);
+		}
+		
+		//clicking the add new board button should prompt for the name of the new board
+        $("#add-board").click(function (e) {
+		  newName = prompt("Who should we create this board for?", "e.g. Tom");
+		  if(newName != null)
+		  {
+			  document.getElementById("board-name").innerHTML = newName + "'s Board";
+			  boardNames.push(newName);
+			  $("#board-switcher").append("<option>" + newName);
+			  
+			  if(boardNames.length > 1)
+			  {
+				  document.getElementById("board-switcher").style.visibility = "visible";
+				  document.getElementById("board-select-text").style.visibility = "visible";
+			  }
+			  document.getElementById("board-switcher").selectedIndex = document.getElementById("board-switcher").length - 1;
+		  }
+        });
+		
         //clicking the add website button should start to add a website
         $("#add-website").click(function (e) {
           console.log("clicked add-website");
@@ -39,15 +68,31 @@
         $("#add-checklist").click(function (e) {
           console.log("clicked add-checklist");
         });
-
+		
+		$("#board-switcher").change(function (e) {
+			document.getElementById("board-name").innerHTML = $("#board-switcher").val() + "'s Board";
+			// This is where we'll need to cache board data
+		});
       });
     </script>
   </head>
 
   <body>
-
-    <div id="title">Welcome to JaneWeb!</div>
-
+	<table style="width:100%">
+    	<col width="25%">
+        <col width="40%">
+        <col width="35%">
+    	<tr>
+        	<td><div id="title" align="left">Welcome to JaneWeb!</div></td>
+            <td><div id="board-name" align="center">No Current Boards</div></td>
+        	<td align="right">
+            	<div id="board-select-text" style="display:inline-block; visibility:hidden">Show board for: </div>
+            	<select name="decision" id="board-switcher" style="visibility:hidden; display:inline-block"></select>
+				<div class="button" id="add-board"><img src="images/add_board_button.jpg" width="130" height="40"/></div>
+        	</td>
+        </tr>
+	</table>
+    
     <!-- centers the button line and the corkboard. -->
     <!-- NOTE: the off-centered-ness of the corkboard was really annoying me -->
     <!-- but this was the only way I could figure out how to semi-ish fix it -->

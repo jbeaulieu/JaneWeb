@@ -38,7 +38,7 @@ var createWebsiteObject = function(url){
                    class:"website-link",
                    title: url,
                    target: "_blank"});
-  var image = '<img class="website-image" src="images/default_website_icon.png" width="180" height="180"/>';
+  var image = '<img class="website-image draggable" src="images/default_website_icon.png" width="180" height="180"/>';
   var website = $('<span>', {class: "website-url",
                             text: url});
   link.append(image);

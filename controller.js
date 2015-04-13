@@ -1,0 +1,51 @@
+      $(document).ready(function() {
+    
+    var boardNames = [];
+    document.getElementById("board-switcher").disabled = false;
+
+    var newName = prompt("Welcome to JaneWeb! Who should we create a board for?", "e.g. Tom");
+    if(newName != null)
+    {
+      document.getElementById("board-name").innerHTML = newName + "'s Board";
+      boardNames.push(newName);
+      $("#board-switcher").append("<option>" + newName);
+    }
+    
+    //clicking the add new board button should prompt for the name of the new board
+        $("#add-board").click(function (e) {
+      newName = prompt("Who should we create this board for?", "e.g. Tom");
+      if(newName != null)
+      {
+        document.getElementById("board-name").innerHTML = newName + "'s Board";
+        boardNames.push(newName);
+        $("#board-switcher").append("<option>" + newName);
+        
+        if(boardNames.length > 1)
+        {
+          document.getElementById("board-switcher").style.visibility = "visible";
+          document.getElementById("board-select-text").style.visibility = "visible";
+        }
+        document.getElementById("board-switcher").selectedIndex = document.getElementById("board-switcher").length - 1;
+      }
+        });
+    
+        //clicking the add website button should start to add a website
+        $("#add-website").click(function (e) {
+          console.log("clicked add-website");
+        });
+
+        //clicking the add note button should start to create a new note
+        $("#add-note").click(function (e) {
+          console.log("clicked add-note");
+        });
+
+        //clicking the add checklist button should start a new checklist
+        $("#add-checklist").click(function (e) {
+          console.log("clicked add-checklist");
+        });
+    
+    $("#board-switcher").change(function (e) {
+      document.getElementById("board-name").innerHTML = $("#board-switcher").val() + "'s Board";
+      // This is where we'll need to cache board data
+    });
+      });

@@ -16,6 +16,7 @@
 	color: #517985;
 }
 
+
 #board-name {
 	text-align:center;
 	vertical-align:central;
@@ -31,4 +32,26 @@
 	color: #517985;
 	margin-right:10px;
 	margin-bottom:20px;
+}
+
+.website-link {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    left: 250px;
+}
+
+.website-url{
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    bottom: 0px;
+}
+
+.website-image {
+    position: absolute;
+    width: 200px;
+    bottom: 0px;
 }

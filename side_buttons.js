@@ -6,7 +6,7 @@ $(document).ready(function() {
   //clicking the add website button should start to add a website
   $("#add-website-btn").click(function (e) {
     console.log("clicked add-website");
-    var url = $("#url-beginning").text() + $("#website-url").val();
+    var url = $("#website-url").val();
     console.log("url", url);
     $("#website-url").val("");
     $("body").append(createWebsiteObject(url));
@@ -36,11 +36,15 @@ $(document).ready(function() {
 
 
 var createWebsiteObject = function(url){
+  var fullUrl = $("#url-beginning").text() + url;
+  var getImageUrl = "http://free.pagepeeker.com/v2/thumbs.php?size=m&url=" + fullUrl;
+
   var link = $('<a>', {href: url,
                    class:"website-link",
                    title: url,
                    target: "_blank"});
-  var image = '<img class="website-image draggable" src="images/default_website_icon.png" width="180" height="180"/>';
+  var image = '<img class="website-image draggable" src=' + getImageUrl + '/>';
+
   var website = $('<span>', {class: "website-url",
                             text: url});
   link.append(image);

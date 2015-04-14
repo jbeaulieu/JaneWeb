@@ -12,21 +12,23 @@ $(document).ready(function() {
     $("body").append(createWebsiteObject(url));
   });
 
-
-
-
-  var addWebsite = function(){
-    console.log("add website");
-  }
-
   //clicking the add note button should start to create a new note
-  $("#add-note").click(function (e) {
+  $("#add-note-btn").click(function (e) {
     console.log("clicked add-note");
+    var note = $("#note").val();
+    console.log("note", note);
+    $("#note").val("");
+    $("body").append(createNoteObject(note));
   });
 
   //clicking the add checklist button should start a new checklist
-  $("#add-checklist").click(function (e) {
+  $("#add-checklist-btn").click(function (e) {
     console.log("clicked add-checklist");
+  });
+
+  //clicking the add photo button will pop up a screen to pick a photo from the screen
+  $("add-photo-btn").click(function (e) {
+    console.log("clicked add-photo")
   });
 
 
@@ -45,3 +47,13 @@ var createWebsiteObject = function(url){
   link.append(website);
   return link
 };
+
+var createNoteObject = function(note){;
+  var note = "<div class=button id=note-image>"+note+"</button>";
+  return note;
+}
+
+
+
+
+

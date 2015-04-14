@@ -59,3 +59,14 @@
     width: 200px;
     bottom: 0px;
 }
+
+#note-image {
+	background: url('images/stickyNoteImage.png');
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	padding: 10px 15px 10px 15px;
+	top: 200px;
+	left: 400px;
+	z-index: 2;
+}

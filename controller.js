@@ -29,21 +29,6 @@
       }
         });
     
-        //clicking the add website button should start to add a website
-        $("#add-website").click(function (e) {
-          console.log("clicked add-website");
-        });
-
-        //clicking the add note button should start to create a new note
-        $("#add-note").click(function (e) {
-          console.log("clicked add-note");
-        });
-
-        //clicking the add checklist button should start a new checklist
-        $("#add-checklist").click(function (e) {
-          console.log("clicked add-checklist");
-        });
-    
     $("#board-switcher").change(function (e) {
       document.getElementById("board-name").innerHTML = $("#board-switcher").val() + "'s Board";
       // This is where we'll need to cache board data

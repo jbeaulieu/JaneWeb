@@ -15,9 +15,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,700,300' rel='stylesheet' type='text/css'>
+
     <script type="text/javascript" src="model.js"></script>
     <script type="text/javascript" src="controller.js"></script>
     <script type="text/javascript" src="side_buttons.js"></script>
+    <script type="text/javascript" src="board.js"></script>
     <script type="text/javascript" src="draganddrop.js"></script>
 
 
@@ -29,12 +33,13 @@
         <col width="40%">
         <col width="35%">
     	<tr>
-        	<td><div id="title" align="left">Welcome to JaneWeb!</div></td>
+        	<td><div id="title" align="left">JaneWeb</div></td>
             <td><div id="board-name" align="center">No Current Boards</div></td>
+            <td><button id="view-child-board">View Board</button></td>
         	<td align="right">
             	<div id="board-select-text" style="display:inline-block; visibility:hidden">Show board for: </div>
             	<select name="decision" id="board-switcher" style="visibility:hidden; display:inline-block"></select>
-				<div class="button" id="add-board"><img src="images/add_board_button.jpg" width="130" height="40"/></div>
+				<div class="button add-button" id="add-board"><img src="images/add_board_button.jpg" width="130" height="40"/></div>
         	</td>
         </tr>
 	</table>
@@ -45,25 +50,25 @@
           <table id="buttons">
             <tr>
               <td>
-                <div class="button" id="add-website" data-toggle="modal" data-target="#add-website-modal"><img src="images/add_website_button.png" width "130" height="130"></div>
+                <div class="button add-button" id="add-website" data-toggle="modal" data-target="#add-website-modal"><img src="images/add_website_button.png" width "130" height="130"></div>
               </td>
             </tr>
 
             <tr>
               <td>
-                <div class="button" id="add-note" data-toggle="modal" data-target="#add-note-modal"><img src="images/add_note_button.png" width="130" height="130"/></div>
+                <div class="button add-button" id="add-note" data-toggle="modal" data-target="#add-note-modal"><img src="images/add_note_button.png" width="130" height="130"/></div>
               </td>
             </tr>
 
             <tr>
               <td>
-                <div class="button" id="add-checklist" data-toggle="modal" data-target="#add-checklist-modal"><img src="images/add_checklist_button.png" width="130" height="130"/></div>
+                <div class="button add-button" id="add-checklist" data-toggle="modal" data-target="#add-checklist-modal"><img src="images/add_checklist_button.png" width="130" height="130"/></div>
               </td>
             </tr>
 
             <tr>
               <td>
-                <div class="button" id="add-photo" data-toggle="modal" data-target="#add-photo-modal"><img src="images/add_photo_button.png" width="130" height="130"/></div>
+                <div class="button add-button" id="add-photo" data-toggle="modal" data-target="#add-photo-modal"><img src="images/add_photo_button.png" width="130" height="130"/></div>
               </td>
             </tr>
           </table>

@@ -71,3 +71,36 @@
 	left: 400px;
 	z-index: 2;
 }
+
+#checklist-image {
+	background: url('images/paperImage.png');
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	padding: 10px 60px 10px 60px;
+	top: 200px;
+	left: 400px;
+	z-index: 2;
+}
+
+#photo {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+}
+
+form {
+    display: inline-block;
+}
+.form-group {
+    text-align: center;
+    padding-bottom: 25px;
+}
+#list {
+    margin: 0 auto;
+    width: 500px;
+}
+
+a.close {
+  float: right;
+}

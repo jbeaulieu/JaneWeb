@@ -24,14 +24,24 @@ $(document).ready(function() {
   //clicking the add checklist button should start a new checklist
   $("#add-checklist-btn").click(function (e) {
     console.log("clicked add-checklist");
+    var checklistTitle = $("#checklistTitle").val();
+    var checklistItems = $("#list").text();
+    console.log("list", checklistItems);
+    //empty the fields
+    $("#item").val("");
+    $("#checklistTitle").val("");
+    $("#list").text("");
+    $("body").append(createChecklistObject(checklistTitle, checklistItems));
   });
 
   //clicking the add photo button will pop up a screen to pick a photo from the screen
-  $("add-photo-btn").click(function (e) {
-    console.log("clicked add-photo")
+  $("#add-photo-btn").click(function (e) {
+    console.log("clicked add-photo");
+    //should createPhotoObject
+    var url = $("input[name=img]").val();
+    $("input[name=img]").val("");
+    $("body").append(createPhotoObject(url));
   });
-
-
 });
 
 
@@ -53,11 +63,31 @@ var createWebsiteObject = function(url){
 };
 
 var createNoteObject = function(note){;
-  var note = "<div class=button id=note-image>"+note+"</button>";
+  var note = "<div class=button id=note-image>"+note+"</div>";
   return note;
 }
 
+var createChecklistObject = function(title, items){
+  var checklist = "<div class=button id=checklist-image>"+title+"\n"+items+"</div>";
+  return checklist;
+}
+
+var createPhotoObject = function(url){
+  var photo = "<div class=button id=photo><img src='../" + url + "'' width='130' height='130'/></div>";
+  return photo;
+}
 
 
+// code for checklist modal from Ronalds Vilcins. Found at
+// http://codepen.io/RonaldsVilcins/pen/iJxGB
+// add item to the checklist
+$(document).ready(function () {
+    $('button').click(function () {
+        $('#list').append("<li>" + $("input[name=item]").val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></li>");
+    });
+    $("body").on('click', '#list a', function () {
+        $(this).closest("li").remove();
+    });
+});
 
 

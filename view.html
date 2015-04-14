@@ -63,7 +63,7 @@
 
             <tr>
               <td>
-                <div class="button" id="add-photo" data-toggle="modal" data-target="#add-photo=modal"><img src="images/add_photo_button.png" width="130" height="130"/></div>
+                <div class="button" id="add-photo" data-toggle="modal" data-target="#add-photo-modal"><img src="images/add_photo_button.png" width="130" height="130"/></div>
               </td>
             </tr>
           </table>
@@ -121,9 +121,60 @@
 
 
   <!-- modal for add-checklist -->
+    <div class="modal fade" id="add-checklist-modal" tabindex="-1" role="dialog" aria-labelledby="add-checklist-modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="add-checklist-modal-label">Add Checklist</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <span class="input-group-addon">Checklist Title:</span>
+              <input type="text" id="checklistTitle" class="form-control" aria-describedby="checklistTitle">
+            </div>
+            <div class="form-group">
+              <form role="form">
+                <input id = "item" type="text" class="form-control" placeholder="New item" name="item">
+              </form>
+              <button type="button" class="btn btn btn-primary">Add</button>
+            <div></div>
+            <ul class="list-unstyled" id="list"></ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" id="add-checklist-btn" class="btn btn-primary" data-dismiss="modal">Finish</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <!-- modal for add-photo -->
+  <div class="modal fade" id="add-photo-modal" tabindex="-1" role="dialog" aria-labelledby="add-photo-modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="add-photo-modal-label">Add Photo</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <label for="newPhoto">Select a Photo:</label>
+              <div class="input-group">
+                <input type="file" name="img">
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" id="add-photo-btn" class="btn btn-primary" data-dismiss="modal">Add</button>
+      </div>
+      </div>
+    </div>
+  </div>
 
   </body>
-
-
 </html>

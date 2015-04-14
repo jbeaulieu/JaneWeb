@@ -19,6 +19,8 @@ $(document).ready(function() {
     console.log("note", note);
     $("#note").val("");
     $("body").append(createNoteObject(note));
+    $('.draggable').draggable();
+
   });
 
   //clicking the add checklist button should start a new checklist
@@ -63,17 +65,17 @@ var createWebsiteObject = function(url){
 };
 
 var createNoteObject = function(note){;
-  var note = "<div class=button id=note-image>"+note+"</div>";
+  var note = "<div class='button draggable' id=note-image>"+note+"</div>";
   return note;
-}
+  }
 
 var createChecklistObject = function(title, items){
-  var checklist = "<div class=button id=checklist-image>"+title+"\n"+items+"</div>";
+  var checklist = "<div class='button draggable' id=checklist-image>"+title+"\n"+items+"</div>";
   return checklist;
 }
 
 var createPhotoObject = function(url){
-  var photo = "<div class=button id=photo><img src='../" + url + "'' width='130' height='130'/></div>";
+  var photo = "<div class='button draggable' id=photo><img src='../" + url + "'' width='130' height='130'/></div>";
   return photo;
 }
 

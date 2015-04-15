@@ -62,16 +62,16 @@ var createWebsiteObject = function(url){
   var fullUrl = $("#url-beginning").text() + url;
   var getImageUrl = "http://free.pagepeeker.com/v2/thumbs.php?size=m&url=" + fullUrl;
 
-  var link = $('<a>', {href: url,
-                   class:"website-link",
-                   title: url,
+  var link = $('<a>', {href: fullUrl,
+                   class:"website-link draggable",
+                   title: fullUrl,
                    target: "_blank"});
-  var image = '<img class="website-image draggable" src=' + getImageUrl + '/>';
+  var image = '<img class="website-image" src=' + getImageUrl + '/>';
 
-  //var website = $('<span>', {class: "website-url",
-                            //text: url});
+  var website = $('<span>', {class: "website-url",
+                            text: url});
   link.append(image);
-  //link.append(website);
+  link.append(website);
   return link
 };
 

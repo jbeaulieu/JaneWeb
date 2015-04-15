@@ -21,11 +21,14 @@ html, body{
 	text-align: center;
 	vertical-align:central;
 	font-size: 30px;
-	margin-top: 10px;
-	margin-bottom: 20px;
+	/*margin-top: 10px;
+	margin-bottom: 20px; */
 	color: #517985;
     font-family: Nunito;
     font-weight: 300;
+    position: absolute;
+    top: 10px;
+    left: 15px;
 }
 
 

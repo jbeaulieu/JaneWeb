@@ -9,7 +9,10 @@ $(document).ready(function() {
     var url = $("#website-url").val();
     console.log("url", url);
     $("#website-url").val("");
-    $("body").append(createWebsiteObject(url));
+    $("#corkboard-overlay").append(createWebsiteObject(url));
+    $('.draggable').draggable({
+      containment: "#corkboard-overlay"
+    });
   });
 
   //clicking the add note button should start to create a new note
@@ -18,8 +21,10 @@ $(document).ready(function() {
     var note = $("#note").val();
     console.log("note", note);
     $("#note").val("");
-    $("body").append(createNoteObject(note));
-    $('.draggable').draggable();
+    $("#corkboard-overlay").append(createNoteObject(note));
+    $('.draggable').draggable({
+      containment: "parent"
+    });
 
   });
 
@@ -33,7 +38,10 @@ $(document).ready(function() {
     $("#item").val("");
     $("#checklistTitle").val("");
     $("#list").text("");
-    $("body").append(createChecklistObject(checklistTitle, checklistItems));
+    $("#corkboard-overlay").append(createChecklistObject(checklistTitle, checklistItems));
+    $('.draggable').draggable({
+      containment: "parent"
+    });
   });
 
   //clicking the add photo button will pop up a screen to pick a photo from the screen
@@ -42,7 +50,10 @@ $(document).ready(function() {
     //should createPhotoObject
     var url = $("input[name=img]").val();
     $("input[name=img]").val("");
-    $("body").append(createPhotoObject(url));
+    $("#corkboard-overlay").append(createPhotoObject(url));
+    $('.draggable').draggable({
+      containment: "parent"
+    });
   });
 });
 
@@ -57,10 +68,10 @@ var createWebsiteObject = function(url){
                    target: "_blank"});
   var image = '<img class="website-image draggable" src=' + getImageUrl + '/>';
 
-  var website = $('<span>', {class: "website-url",
-                            text: url});
+  //var website = $('<span>', {class: "website-url",
+                            //text: url});
   link.append(image);
-  link.append(website);
+  //link.append(website);
   return link
 };
 

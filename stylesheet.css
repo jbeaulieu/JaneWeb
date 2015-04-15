@@ -54,6 +54,7 @@ html, body{
   z-index: 0;
   top: 0px;
   left: 0px;
+  border: 15px solid #4C6680;
 }
 
 #corkboard-overlay{
@@ -67,8 +68,8 @@ html, body{
 
 #garbage-can{
   position:absolute;
-  top: 550px;
-  left: 870px;
+  top: 545px;
+  left: 855px;
   height: 100px;
   width: 100px;
   z-index: 4;
@@ -82,6 +83,21 @@ html, body{
   background-image: url("images/Garbage2.png");
 }
 
+.color {
+  position: absolute;
+  left: 960px;
+  top: 102px;
+  visibility: hidden;
+}
+
+#paintbrush{
+  height: 50px;
+  position: absolute;
+  left: 890px;
+  top: 120px;
+  opacity: .5;
+  z-index: 4;
+}
 
 #add-board {
 	display:inline-block;

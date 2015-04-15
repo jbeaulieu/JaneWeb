@@ -23,6 +23,8 @@
     <script type="text/javascript" src="side_buttons.js"></script>
     <script type="text/javascript" src="board.js"></script>
     <script type="text/javascript" src="garbagecan.js"></script>
+    <script type="text/javascript" src="paintbrush.js"></script>
+    <script type="text/javascript" src="jscolor/jscolor.js"></script>
 
 
   </head>
@@ -82,8 +84,17 @@
         </td>
       </tr>
     </table>
-
+    <input class="color" onchange="updateBorder(this.color)"> 
+    <img id="paintbrush" src="images/paintbrush.png" />
     <div id="garbage-can" class="garbage1"></div>
+
+    <script type="text/javascript">
+      var updateBorder = function(color){
+        console.log(color);
+        $("#corkboard").css("border", "15px solid #" + color);
+      }
+    </script>
+    
 
     <!-- modal for add-website -->
     <div class="modal fade" id="add-website-modal" tabindex="-1" role="dialog" aria-labelledby="add-website-modal" aria-hidden="true">

@@ -28,31 +28,27 @@ html, body{
     font-weight: 300;
 }
 
-
-#board-name {
-	text-align:center;
-	vertical-align:central;
-	font-size:24px;
-	margin-top:30px;
-	margin-bottom:10px;
-	color: #517985;
-    font-family: Nunito;
-    font-weight: 300;
-}
-
 #corkboard-holder{
   vertical-align: top;
   display: inline-block;
   position: relative;
-  height: 550px;
+  height: 620px;
   width: 840px;
+}
 
+#board-name {
+  text-align:center;
+  font-size:24px;
+  position: relative;
+  color: #517985;
+    font-family: Nunito;
+    font-weight: 300;
 }
 
 #corkboard{
   position: absolute;
   z-index: 0;
-  top: 0px;
+  top: 40px;
   left: 0px;
   border: 15px solid #4C6680;
 }
@@ -60,7 +56,7 @@ html, body{
 #corkboard-overlay{
   position: absolute;
   z-index: 1;
-  top: 0px;
+  top: 40px;
   left: 0px;
   height: 550px;
   width: 840px;
@@ -68,7 +64,7 @@ html, body{
 
 #garbage-can{
   position:absolute;
-  top: 545px;
+  top: 555px;
   left: 855px;
   height: 100px;
   width: 100px;
@@ -86,7 +82,7 @@ html, body{
 .color {
   position: absolute;
   left: 960px;
-  top: 102px;
+  top: 114px;
   visibility: hidden;
 }
 
@@ -94,7 +90,7 @@ html, body{
   height: 50px;
   position: absolute;
   left: 890px;
-  top: 120px;
+  top: 130px;
   opacity: .5;
   z-index: 4;
 }

@@ -17,9 +17,7 @@ $(document).ready(function() {
 
   //clicking the add note button should start to create a new note
   $("#add-note-btn").click(function (e) {
-    console.log("clicked add-note");
     var note = $("#note").val();
-    console.log("note", note);
     $("#note").val("");
     $("#corkboard-overlay").append(createNoteObject(note));
     $('.draggable').draggable({
@@ -33,11 +31,10 @@ $(document).ready(function() {
     console.log("clicked add-checklist");
     var checklistTitle = $("#checklistTitle").val();
     var checklistItems = $("#list").text();
-    console.log("list", checklistItems);
     //empty the fields
     $("#item").val("");
     $("#checklistTitle").val("");
-    $("#list").text("");
+    $("#list").empty();
     $("#corkboard-overlay").append(createChecklistObject(checklistTitle, checklistItems));
     $('.draggable').draggable({
       containment: "parent"
@@ -96,7 +93,8 @@ var createPhotoObject = function(url){
 // add item to the checklist
 $(document).ready(function () {
     $('button').click(function () {
-        $('#list').append("<li>" + $("input[name=item]").val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></li>");
+      $("<li>" + $("input[name=item]").val() + " <a id='deleter' href='#' class='close' aria-hidden='true'>&times;</a></li>").appendTo("#list")
+        //$('#list').appendChild("<li>" + $("input[name=item]").val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></li>");
     });
     $("body").on('click', '#list a', function () {
         $(this).closest("li").remove();

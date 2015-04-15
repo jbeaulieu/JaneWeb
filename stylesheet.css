@@ -1,3 +1,12 @@
+html, body{
+  height: 100%;
+  margin: 0px;
+}
+
+#janeweb {
+  background-color: #EBF5FF;
+  min-height: 100%;
+}
 
 #buttons {
 	display: inline-block;
@@ -58,8 +67,8 @@
 
 #garbage-can{
   position:absolute;
-  bottom: 40px;
-  right: 305px;
+  top: 550px;
+  left: 870px;
   height: 100px;
   width: 100px;
   z-index: 4;

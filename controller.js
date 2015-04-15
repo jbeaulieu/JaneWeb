@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     var boardNames = [];
-    document.getElementById("board-switcher").disabled = false;
+    //document.getElementById("board-switcher").disabled = false;
 
     var newName = prompt("Welcome to JaneWeb! Who should we create a board for?", "e.g. Tom");
     if(newName != null)

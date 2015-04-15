@@ -11,7 +11,7 @@ html, body{
 
 #buttons {
 	display: inline-block;
-	margin-top: 0px;
+	margin-top: 35px;
 }
 
 .button {
@@ -31,21 +31,29 @@ html, body{
   height: 50px;
 }
 
-#view-child-board{
+#button-container{
+  vertical-align: middle;
+  margin-left: 30px;
   position: relative;
   display: inline-block;
-  background-image: url("images/childsboard.png");
-  height: 40px;
+  width: 101px;
+  height: 28px;
+}
+
+#view-child-board{
+  position: absolute;
+}
+
+#view-child-board img, #view-parent-board img {
+  width: 100px;
 }
 
 #view-parent-board{
-  position: relative;
-  display: inline-block;
-  background-image: url("images/parentsboard.png");
-  height: 40px;
+  position: absolute;
 }
 
 #corkboard-holder{
+  margin-top:30px;
   vertical-align: top;
   display: inline-block;
   position: relative;
@@ -81,7 +89,7 @@ html, body{
 
 #garbage-can{
   position:absolute;
-  top: 580px;
+  top: 560px;
   left: 855px;
   height: 100px;
   width: 100px;
@@ -107,7 +115,7 @@ html, body{
   height: 50px;
   position: absolute;
   left: 890px;
-  top: 160px;
+  top: 140px;
   opacity: .5;
   z-index: 4;
 }

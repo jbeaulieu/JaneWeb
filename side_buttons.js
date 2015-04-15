@@ -30,7 +30,7 @@ $(document).ready(function() {
   $("#add-checklist-btn").click(function (e) {
     console.log("clicked add-checklist");
     var checklistTitle = $("#checklistTitle").val();
-    var checklistItems = $("#list").text();
+    var checklistItems = $("#list").html();
     //empty the fields
     $("#item").val("");
     $("#checklistTitle").val("");
@@ -69,16 +69,19 @@ var createWebsiteObject = function(url){
                             text: url});
   link.append(image);
   link.append(website);
-  return link
+  return link;
 };
 
 var createNoteObject = function(note){;
-  var note = "<div class='button draggable' id=note-image>"+note+"</div>";
+  var note = "<div class='button draggable' id=note-image><p>"+note+"</p></div>";
   return note;
   }
 
 var createChecklistObject = function(title, items){
-  var checklist = "<div class='button draggable' id=checklist-image>"+title+"\n"+items+"</div>";
+  var checklist = "<div class='button draggable' id=checklist-image>"+
+                      "<h4>"+title+"</h4>" + 
+                      "<ul class='list-unstyled'>"+items+"</ul>"
+                  "</div>";
   return checklist;
 }
 

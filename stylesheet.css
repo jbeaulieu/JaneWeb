@@ -163,9 +163,7 @@ html, body{
 	width: 200px;
 	height: 200px;
 	position: absolute;
-	padding: 10px 60px 10px 60px;
-	top: 200px;
-	left: 400px;
+	padding: 1px 30px 1px 50px;
 	z-index: 2;
 }
 

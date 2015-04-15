@@ -33,12 +33,4 @@ $(document).ready(function() {
       document.getElementById("board-name").innerHTML = $("#board-switcher").val() + "'s Board";
       // This is where we'll need to cache board data
     });
-
-    $("#garbage-can").mouseover(function() {
-      $(this).css("background-image", "url('images/Garbage2.png')")
-    });
-
-    $("#garbage-can").mouseleave(function() {
-      $(this).css("background-image", "url('images/Garbage1.png')")
-    });
 });

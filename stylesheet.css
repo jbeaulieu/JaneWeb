@@ -58,11 +58,19 @@
 
 #garbage-can{
   position:absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 110px;
-  width: 110px;
+  bottom: 40px;
+  right: 305px;
+  height: 100px;
+  width: 100px;
+  z-index: 4;
+}
+
+.garbage1 {
   background-image: url("images/Garbage1.png");
+}
+
+.garbage2 {
+  background-image: url("images/Garbage2.png");
 }
 
 

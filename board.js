@@ -9,6 +9,8 @@ $(document).ready(function(){
         $("#view-child-board").hide();
         $("#view-parent-board").show();
         $("#corkboard-holder").offset({top: corkboardOffset.top, left: corkboardOffset.left});
+        $("#garbage-can").hide();
+        $("#paintbrush").hide();
 
     })
 
@@ -18,6 +20,8 @@ $(document).ready(function(){
         $("#view-parent-board").hide();
         $("#board-name").text(childName + "'s Board");
         $("#corkboard-holder").css({"left": 0, "top": 0});
+        $("#garbage-can").show();
+        $("#paintbrush").show();
 
     })
 

@@ -56,6 +56,16 @@
   width: 840px;
 }
 
+#garbage-can{
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 110px;
+  width: 110px;
+  background-image: url("images/Garbage1.png");
+}
+
+
 #add-board {
 	display:inline-block;
 	vertical-align:central;

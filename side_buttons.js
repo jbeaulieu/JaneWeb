@@ -21,7 +21,7 @@ $(document).ready(function() {
     $("#note").val("");
     $("#corkboard-overlay").append(createNoteObject(note));
     $('.draggable').draggable({
-      containment: "parent"
+      containment: "#corkboard-overlay"
     });
 
   });
@@ -37,7 +37,7 @@ $(document).ready(function() {
     $("#list").empty();
     $("#corkboard-overlay").append(createChecklistObject(checklistTitle, checklistItems));
     $('.draggable').draggable({
-      containment: "parent"
+      containment: "#corkboard-overlay"
     });
   });
 
@@ -49,7 +49,7 @@ $(document).ready(function() {
     $("input[name=img]").val("");
     $("#corkboard-overlay").append(createPhotoObject(url));
     $('.draggable').draggable({
-      containment: "parent"
+      containment: "#corkboard-overlay"
     });
   });
 });

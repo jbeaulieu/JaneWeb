@@ -220,3 +220,7 @@ li {
   position: fixed;
   right: 20px;
 }
+ 
+#add-note-modal .modal-dialog {
+  width:250px;
+}

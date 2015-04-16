@@ -245,3 +245,8 @@ li {
 #add-note-modal .modal-dialog {
   width:400px;
 }
+
+#item {
+    display: inline-block;
+    width: 514px;
+}

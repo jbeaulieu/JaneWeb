@@ -60,7 +60,7 @@ var createWebsiteObject = function(url){
   var getImageUrl = "http://free.pagepeeker.com/v2/thumbs.php?size=m&url=" + fullUrl;
 
   var link = $('<a>', {href: fullUrl,
-                   class:"website-link draggable",
+                   class:"website-link draggable "+activeUser,
                    title: fullUrl,
                    target: "_blank"});
   var image = '<img class="website-image" src=' + getImageUrl + '/>';
@@ -73,12 +73,12 @@ var createWebsiteObject = function(url){
 };
 
 var createNoteObject = function(note){;
-  var note = "<div class='button draggable' id=note-image><p>"+note+"</p></div>";
+  var note = "<div class='button draggable "+activeUser+"' id=note-image><p>"+note+"</p></div>";
   return note;
   }
 
 var createChecklistObject = function(title, items){
-  var checklist = "<div class='button draggable' id=checklist-image>"+
+  var checklist = "<div class='button draggable "+activeUser+"' id=checklist-image>"+
                       "<h4>"+title+"</h4>" + 
                       "<ul class='list-unstyled'>"+items+"</ul>"
                   "</div>";
@@ -86,7 +86,7 @@ var createChecklistObject = function(title, items){
 }
 
 var createPhotoObject = function(url){
-  var photo = "<div class='button draggable' id=photo><img src='../" + url + "'' width='130' height='130'/></div>";
+  var photo = "<div class='button draggable "+activeUser+"' id=photo><img src='images/vacation.jpg' height='130'/></div>";
   return photo;
 }
 

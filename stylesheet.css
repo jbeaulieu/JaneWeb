@@ -18,6 +18,15 @@ html, body{
     cursor: pointer;
 }
 
+#add-board-container{
+  position: relative;
+  margin-left: 335px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 350px;
+  height: 40px;
+}
+
 #title {
   position: relative;
   display: inline-block;
@@ -107,7 +116,7 @@ html, body{
 .color {
   position: absolute;
   left: 960px;
-  top: 114px;
+  top: 123px;
   visibility: hidden;
 }
 

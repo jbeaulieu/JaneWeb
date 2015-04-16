@@ -19,6 +19,13 @@ $(document).ready(function() {
       newName = prompt("Who should we create this board for?", "e.g. Tom");
       if(newName != null)
       {
+		for (i = 0; i < boardNames.length; i++) {
+		  var activeObjects = document.getElementsByClassName(boardNames[i]);
+		  var i;
+		  for (j = 0; j < activeObjects.length; j++) {
+			activeObjects[j].style.visibility="hidden";
+		  }	
+		}
         document.getElementById("board-name").innerHTML = newName + "'s Board";
         boardNames.push(newName);
         $("#board-switcher").append("<option>" + newName);
@@ -33,7 +40,17 @@ $(document).ready(function() {
         });
     
     $("#board-switcher").change(function (e) {
+      var activeObjects = document.getElementsByClassName(activeUser);
+	  var i;
+	  for (i = 0; i < activeObjects.length; i++) {
+		activeObjects[i].style.visibility="hidden";
+	  }
+	  
+	  activeUser = $("#board-switcher").val();
       document.getElementById("board-name").innerHTML = $("#board-switcher").val() + "'s Board";
-      // This is where we'll need to cache board data
+      var activeObjects = document.getElementsByClassName(activeUser);
+	  for (i = 0; i < activeObjects.length; i++) {
+		activeObjects[i].style.visibility="visible";
+	  }
     });
 });

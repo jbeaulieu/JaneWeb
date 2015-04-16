@@ -73,7 +73,7 @@ var createWebsiteObject = function(url){
 };
 
 var createNoteObject = function(note){;
-  var note = "<div class='button draggable' id=note-image><p>"+note+"</p></div>";
+  var note = "<div class='button draggable "+activeUser+"' id=note-image><p>"+note+"</p></div>";
   return note;
   }
 

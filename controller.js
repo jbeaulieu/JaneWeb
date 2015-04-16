@@ -1,5 +1,7 @@
+var activeUser = "";
+
 $(document).ready(function() {
-    
+	
     var boardNames = [];
     //document.getElementById("board-switcher").disabled = false;
 
@@ -9,10 +11,11 @@ $(document).ready(function() {
       document.getElementById("board-name").innerHTML = newName + "'s Board";
       boardNames.push(newName);
       $("#board-switcher").append("<option>" + newName);
+	  activeUser = newName;
     }
     
     //clicking the add new board button should prompt for the name of the new board
-        $("#add-board").click(function (e) {
+    $("#add-board").click(function (e) {
       newName = prompt("Who should we create this board for?", "e.g. Tom");
       if(newName != null)
       {

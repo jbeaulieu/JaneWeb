@@ -36,21 +36,22 @@ $(document).ready(function() {
           document.getElementById("board-select-text").style.visibility = "visible";
         }
         document.getElementById("board-switcher").selectedIndex = document.getElementById("board-switcher").length - 1;
+        activeUser = $("#board-switcher").val();
       }
         });
     
     $("#board-switcher").change(function (e) {
       var activeObjects = document.getElementsByClassName(activeUser);
-	  var i;
-	  for (i = 0; i < activeObjects.length; i++) {
-		activeObjects[i].style.visibility="hidden";
-	  }
-	  
-	  activeUser = $("#board-switcher").val();
-      document.getElementById("board-name").innerHTML = $("#board-switcher").val() + "'s Board";
+      var i;
+  	  for (i = 0; i < activeObjects.length; i++) {
+  		  activeObjects[i].style.visibility="hidden";
+  	  }
+	   
+     activeUser = $("#board-switcher").val();
+    document.getElementById("board-name").innerHTML = $("#board-switcher").val() + "'s Board";
       var activeObjects = document.getElementsByClassName(activeUser);
-	  for (i = 0; i < activeObjects.length; i++) {
-		activeObjects[i].style.visibility="visible";
-	  }
+  	  for (i = 0; i < activeObjects.length; i++) {
+  		  activeObjects[i].style.visibility="visible";
+  	  }
     });
 });

@@ -73,12 +73,13 @@ var createWebsiteObject = function(url){
 };
 
 var createNoteObject = function(note){;
-  var note = "<div class='button draggable "+activeUser+"' id=note-image><p>"+note+"</p></div>";
+  var note = "<div class='button draggable "+activeUser+"' id='note-image'><p>"+note+"</p></div>";
   return note;
   }
 
 var createChecklistObject = function(title, items){
-  var checklist = "<div class='button draggable "+activeUser+"' id=checklist-image>"+
+
+  var checklist = "<div class='button draggable "+activeUser+"' id='checklist-image'>"+
                       "<h4>"+title+"</h4>" + 
                       "<ul class='list-unstyled'>"+items+"</ul>"
                   "</div>";
@@ -86,7 +87,8 @@ var createChecklistObject = function(title, items){
 }
 
 var createPhotoObject = function(url){
-  var photo = "<div class='button draggable "+activeUser+"' id=photo><img src='images/vacation.jpg' height='130'/></div>";
+  var photo = "<div class='button draggable "+activeUser+"' id='photo'><img src='images/vacation.jpg' height='130'/></div>";
+  var photo = "<div class='button draggable' id='photo'><img src='../" + url + "'' width='130' height='130'/></div>";
   return photo;
 }
 
@@ -95,7 +97,7 @@ var createPhotoObject = function(url){
 // http://codepen.io/RonaldsVilcins/pen/iJxGB
 // add item to the checklist
 $(document).ready(function () {
-    $('button').click(function () {
+    $('#add-item-btn').click(function () {
       $("<li>" + $("input[name=item]").val() + " <a id='deleter' href='#' class='close' aria-hidden='true'>&times;</a></li>").appendTo("#list")
         //$('#list').appendChild("<li>" + $("input[name=item]").val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></li>");
     });

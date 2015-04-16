@@ -86,7 +86,7 @@ var createChecklistObject = function(title, items){
 }
 
 var createPhotoObject = function(url){
-  var photo = "<div class='button draggable "+activeUser+"' id=photo><img src='../" + url + "'' width='130' height='130'/></div>";
+  var photo = "<div class='button draggable "+activeUser+"' id=photo><img src='images/vacation.jpg' height='130'/></div>";
   return photo;
 }
 

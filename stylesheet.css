@@ -154,6 +154,9 @@ html, body{
     font-size: 20px;
 }
 
+#website-url{
+    width: 475px;
+}
 .website-image {
     width: 200px;
     vertical-align: top;

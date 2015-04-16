@@ -2,8 +2,32 @@
 // has finished loading in the browser.
 $(document).ready(function() {
 
-  //$("#add-website-form").hide();
-  //clicking the add website button should start to add a website
+  $("#add-website").click(function(){
+    // We need to wait for it to load before it can focus
+    var x = setTimeout('$("#website-url").focus()', 500);
+  }) 
+
+  $("#add-note").click(function(){ 
+    var x = setTimeout('$("#note").focus()', 500);
+  })
+
+  $("#add-checklist").click(function(){
+    setTimeout('$("#checklistTitle").focus()', 500);
+    $("#item").bind("keypress", function(event) {
+      if(event.which == 13) {
+      event.preventDefault();
+        addItemToChecklist();
+      }
+    });
+    $("#checklistTitle").bind("keypress", function(event) {
+      if(event.which == 13) {
+      event.preventDefault();
+        $("#item").focus();
+      }
+    });
+  })
+
+  // This is the button INSIDE the add website modal
   $("#add-website-btn").click(function (e) {
     console.log("clicked add-website");
     var url = $("#website-url").val();
@@ -26,7 +50,7 @@ $(document).ready(function() {
 
   });
 
-  //clicking the add checklist button should start a new checklist
+  // Adds the checklist to the board
   $("#add-checklist-btn").click(function (e) {
     console.log("clicked add-checklist");
     var checklistTitle = $("#checklistTitle").val();
@@ -52,9 +76,28 @@ $(document).ready(function() {
       containment: "#corkboard-overlay"
     });
   });
+
+  // code for checklist modal from Ronalds Vilcins. Found at
+  // http://codepen.io/RonaldsVilcins/pen/iJxGB
+  // add item to the checklist
+  $('#add-checklist-item').click(function () {
+    addItemToChecklist();
+  });
+
+  $("body").on('click', '#list a', function () {
+      $(this).closest("li").remove();
+  });
+
 });
 
+var addItemToChecklist = function(){
+  $("<li>" + $("input[name=item]").val() + " <a id='deleter' href='#' class='close' aria-hidden='true'>&times;</a></li>").appendTo("#list")
+  //$('#list').appendChild("<li>" + $("input[name=item]").val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></li>");
+  $("#item").val("");
+  $("#item").focus();
+}
 
+// Source for thumbnails: http://pagepeeker.com/website-thumbnails-api/
 var createWebsiteObject = function(url){
   var fullUrl = $("#url-beginning").text() + url;
   var getImageUrl = "http://free.pagepeeker.com/v2/thumbs.php?size=m&url=" + fullUrl;
@@ -72,10 +115,10 @@ var createWebsiteObject = function(url){
   return link;
 };
 
-var createNoteObject = function(note){;
+var createNoteObject = function(note){
   var note = "<div class='button draggable "+activeUser+"' id='note-image'><p>"+note+"</p></div>";
   return note;
-  }
+}
 
 var createChecklistObject = function(title, items){
 
@@ -92,18 +135,5 @@ var createPhotoObject = function(url){
   return photo;
 }
 
-
-// code for checklist modal from Ronalds Vilcins. Found at
-// http://codepen.io/RonaldsVilcins/pen/iJxGB
-// add item to the checklist
-$(document).ready(function () {
-    $('#add-item-btn').click(function () {
-      $("<li>" + $("input[name=item]").val() + " <a id='deleter' href='#' class='close' aria-hidden='true'>&times;</a></li>").appendTo("#list")
-        //$('#list').appendChild("<li>" + $("input[name=item]").val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></li>");
-    });
-    $("body").on('click', '#list a', function () {
-        $(this).closest("li").remove();
-    });
-});
 
 

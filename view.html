@@ -31,17 +31,62 @@
   </head>
 
   <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a id="title" class="navbar-brand" href="#">JaneWeb</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!--       <div class="nav navbar-nav navbar-left">
+        <a id="title" href="#">JaneWeb</a>
+      </div> -->
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li><a href="#">Link</a></li> -->
+        <li class="dropdown navbar-form">
+          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Show Board For <span class="caret"></span></a> -->
+          <select id="board-switcher" class="form-control" style="visibility:hidden" role="menu">
+            <!-- <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li> -->
+          </select>
+        </li>
+        <!-- <li><select name="decision" id="board-switcher" style="visibility:hidden; display:inline-block"></select></li> -->
+        <!-- <li><button id="view-child-board" class="button navbar-btn btn btn-default">View Child Board</button></li> -->
+        <li><a id="view-child-board" class="button">View Child Board</a></li>
+        <li><a id="view-parent-board" class="button">View Parent Board</a></li>
+        <li><a id="add-board" class="button">Add New Board</a></li>
+        <!-- <li><button id="view-parent-board" class="button navbar-btn btn btn-default">View Parent Board</button></li> -->
+        <!-- <li><button id="add-board" class="btn btn-default navbar-btn add-button">Add New Board</button></li>   -->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
   <div id="janeweb">
-  <div id="title" align="left">JaneWeb</div>
-  <div id="button-container"> 
+  <!-- <div id="title" align="left">JaneWeb</div> -->
+<!--   <div id="button-container"> 
     <div id="view-child-board" class="button"><img src="images/childsboard.png"/></div>
     <div id="view-parent-board" class="button"><img src="images/parentsboard.png"/></div>
-  </div>
-    <div align="right" id="add-board-container">
+  </div> -->
+<!--     <div align="right" id="add-board-container">
     	<div id="board-select-text" style="display:inline-block; visibility:hidden">Show board for: </div>
       <select name="decision" id="board-switcher" style="visibility:hidden; display:inline-block"></select>
   	 <div class="button add-button" id="add-board"><img src="images/add_board_button.jpg" width="130" height="40"/></div>
-    </div>
+    </div> -->
 
 
     <table>

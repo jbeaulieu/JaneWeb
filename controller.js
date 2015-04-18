@@ -11,6 +11,7 @@ $(document).ready(function() {
       document.getElementById("board-name").innerHTML = newName + "'s Board";
       boardNames.push(newName);
       $("#board-switcher").append("<option>" + newName);
+      // $("#board-switcher").append('<li><a href="#">' + newName + '</a></li>')
 	  activeUser = newName;
     }
     
@@ -29,14 +30,16 @@ $(document).ready(function() {
         document.getElementById("board-name").innerHTML = newName + "'s Board";
         boardNames.push(newName);
         $("#board-switcher").append("<option>" + newName);
+        // $("#board-switcher").append('<li><a href="#">' + newName + '</a></li>')
         
         if(boardNames.length > 1)
         {
           document.getElementById("board-switcher").style.visibility = "visible";
-          document.getElementById("board-select-text").style.visibility = "visible";
+          // document.getElementById("board-select-text").style.visibility = "visible";
         }
         document.getElementById("board-switcher").selectedIndex = document.getElementById("board-switcher").length - 1;
         activeUser = $("#board-switcher").val();
+      
       }
         });
     

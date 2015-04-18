@@ -11,6 +11,7 @@ $(document).ready(function(){
         $("#corkboard-holder").offset({top: corkboardOffset.top, left: corkboardOffset.left});
         $("#garbage-can").hide();
         $("#paintbrush").hide();
+        $("#board-switcher").hide();
 
     })
 
@@ -22,6 +23,7 @@ $(document).ready(function(){
         $("#corkboard-holder").css({"left": 0, "top": 0});
         $("#garbage-can").show();
         $("#paintbrush").show();
+        $("#board-switcher").show();
 
     })
 

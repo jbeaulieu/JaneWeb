@@ -63,11 +63,11 @@
 
 
   <div id="janeweb">
-    <table>
+    <table id="main-table">
       <tr>
-        <td> 
+        <td id="button-td"> 
           <!-- button images created using pixlr.com -->
-          <table id="buttons">
+          <table id="buttons" cellpadding="0">
             <tr>
               <td>
                 <div class="button add-button" id="add-website" data-toggle="modal" data-target="#add-website-modal"><img src="images/add_website_button.png" width "130" height="130"></div>
@@ -100,7 +100,9 @@
             <div id="corkboard-overlay"> </div>
           </div>
         </td>
+        <td id="right-border-space"></td>
       </tr>
+      
     </table>
     <input class="color" onchange="updateBorder(this.color)"> 
     <img id="paintbrush" src="images/paintbrush.png" />

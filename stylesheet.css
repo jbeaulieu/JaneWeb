@@ -8,14 +8,27 @@ body {
     padding-top: 50px;
 }
 
+#main-table {
+  width: 100%;
+}
+
+#right-border-space {
+  width: 90px;
+}
+
 #janeweb {
   background-color: #EBF5FF;
   min-height: 100%;
 }
 
+#button-td {
+  width: 150px;
+  padding: 10px;
+}
 #buttons {
 	display: inline-block;
 	margin-top: 35px;
+  width: 100%;
 }
 
 .button {
@@ -31,10 +44,7 @@ body {
 
 }
 
-/*.navbar {
-    padding: 0px;
-}
-*/
+
 #add-board-container{
   position: relative;
   margin-left: 335px;
@@ -85,7 +95,8 @@ body {
   display: inline-block;
   position: relative;
   height: 620px;
-  width: 840px;
+  /*width: 840px;*/
+  width: 100%;
 }
 
 #board-name {
@@ -93,8 +104,8 @@ body {
   font-size:24px;
   position: relative;
   color: #517985;
-    font-family: Nunito;
-    font-weight: 300;
+  font-family: Nunito;
+  font-weight: 300;
 }
 
 #corkboard{
@@ -103,6 +114,7 @@ body {
   top: 40px;
   left: 0px;
   border: 15px solid #517985;
+  width: 100%;
 }
 
 #corkboard-overlay{
@@ -111,13 +123,14 @@ body {
   top: 40px;
   left: 0px;
   height: 550px;
-  width: 840px;
+  /*width: 840px;*/
+  width: 100%;
 }
 
 #garbage-can{
   position:absolute;
   top: 560px;
-  left: 855px;
+  right: 90px;
   height: 100px;
   width: 100px;
   z-index: 4;
@@ -136,12 +149,13 @@ body {
   left: 960px;
   top: 123px;
   visibility: hidden;
+  z-index: 10;
 }
 
 #paintbrush{
   height: 50px;
   position: absolute;
-  left: 890px;
+  right: 110px;
   top: 140px;
   opacity: .5;
   z-index: 4;

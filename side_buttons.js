@@ -112,21 +112,21 @@ var createWebsiteObject = function(url){
                             text: url});
   link.append(image);
   link.append(website);
-  return link;
+  return offsetObject(link);
 };
 
 var createNoteObject = function(note){
-  var note = "<div class='button draggable "+activeUser+"' id='note-image'><p>"+note+"</p></div>";
-  return note;
+  var note = $("<div class='button draggable "+activeUser+"' id='note-image'><p>"+note+"</p></div>");
+  return offsetObject(note);  
+ 
 }
 
 var createChecklistObject = function(title, items){
 
-  var checklist = "<div class='button draggable "+activeUser+"' id='checklist-image'>"+
+  var checklist = $("<div class='button draggable "+activeUser+"' id='checklist-image'>"+
                       "<h4>"+title+"</h4>" + 
-                      "<ul class='list-unstyled'>"+items+"</ul>"
-                  "</div>";
-  return checklist;
+                      "<ul class='list-unstyled'>"+items+"</ul></div>");
+  return offsetObject(checklist);
 }
 
 var createPhotoObject = function(url){
@@ -135,5 +135,19 @@ var createPhotoObject = function(url){
   return photo;
 }
 
+var offsetObject = function(object){
+  userOffset = boardOffsets[activeUser];
+  object.offset({left:userOffset.left, top:userOffset.top});
+  updateOffset(userOffset);
+  return object;
+}
 
-
+var updateOffset = function(offset){
+  if (offset.left + 450 >= $("#corkboard").width()){
+    offset.left = 20;
+    offset.top +=220;
+  } else{
+    offset.left += 220;
+  }
+  //offsettop?
+}

@@ -1,8 +1,9 @@
 var activeUser = "";
+var boardOffsets = {}; // denotes the current offset at which the image should be placed
+ 
 
 $(document).ready(function() {
-	
-    var boardNames = [];
+    var boardNames = [];   
     //document.getElementById("board-switcher").disabled = false;
 
     var newName = prompt("Welcome to JaneWeb! Who should we create a board for?", "e.g. Tom");
@@ -10,9 +11,10 @@ $(document).ready(function() {
     {
       document.getElementById("board-name").innerHTML = newName + "'s Board";
       boardNames.push(newName);
+      boardOffsets[newName]= {left:20, top:20};
       $("#board-switcher").append("<option>" + newName);
       // $("#board-switcher").append('<li><a href="#">' + newName + '</a></li>')
-	  activeUser = newName;
+	    activeUser = newName;
     }
     
     //clicking the add new board button should prompt for the name of the new board
@@ -29,6 +31,7 @@ $(document).ready(function() {
 		}
         document.getElementById("board-name").innerHTML = newName + "'s Board";
         boardNames.push(newName);
+        boardOffsets[newName]= {left:20, top:20};
         $("#board-switcher").append("<option>" + newName);
         // $("#board-switcher").append('<li><a href="#">' + newName + '</a></li>')
         

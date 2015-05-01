@@ -7,6 +7,7 @@ $(document).ready(function(){
         childName = parentBoardName.split("'s Board")[0];
         $("#board-name").text("Hi " + childName + "!");
         $("#view-child-board").hide();
+        $("#add-board").hide()
         $("#view-parent-board").show();
         $("#corkboard-holder").offset({top: corkboardOffset.top, left: corkboardOffset.left});
         $("#garbage-can").hide();
@@ -17,6 +18,7 @@ $(document).ready(function(){
 
     $("#view-parent-board").click(function(){
         $(".add-button").show();
+        $("#add-board").show()
         $("#view-child-board").show();
         $("#view-parent-board").hide();
         $("#board-name").text(childName + "'s Board");

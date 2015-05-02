@@ -52,8 +52,8 @@
           <select id="board-switcher" class="form-control" style="visibility:hidden" role="menu">
           </select>
         </li>
-        <li><a id="view-child-board" class="button">View Child Board</a></li>
-        <li><a id="view-parent-board" class="button">View Parent Board</a></li>
+        <li><a id="view-child-board" class="button" data-toggle="modal" data-target="#set-password-modal">View Child Board</a></li>
+        <li><a id="view-parent-board" class="button" data-toggle="modal" data-target="#enter-password-modal">View Parent Board</a></li>
         <li><a id="add-board" class="button">Add New Board</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -220,6 +220,50 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal for setting the password -->
+  <div class="modal fade" id="set-password-modal" tabindex="-1" role="dialog" aria-labelledby="parentsetpassword" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Set a Password for this board</h4>
+        </div>
+        <div class="modal-body">
+          <p>Set a parent password:</p>
+          <input class="password" id="password-first" type="password"></input>
+          <p>Retype the password:</p>
+          <input class="password" id="password-second" type="password"></input>
+          <span class="password-error-message" id="passwords-match-error"></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button id="save-password-btn" type="button" class="btn btn-primary">Save Password</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <!-- Modal for entering in the password -->
+  <div class="modal fade" id="enter-password-modal" tabindex="-1" role="dialog" aria-labelledby="enterpassword" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Enter Password</h4>
+        </div>
+        <div class="modal-body">
+          <p>Enter your password to return to the parent board:</p>
+          <input class="password" id="password-child" type="password"></input>
+          <span class="password-error-message" id="incorrect-password-msg"></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" id="password-child-enter" class="btn btn-primary">Enter</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
   </div>
   </body>

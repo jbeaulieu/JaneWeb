@@ -265,3 +265,7 @@ li {
     display: inline-block;
     width: 514px;
 }
+
+.password-error-message{
+  color: red;
+}

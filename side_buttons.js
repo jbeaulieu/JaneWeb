@@ -2,10 +2,10 @@
 // has finished loading in the browser.
 $(document).ready(function() {
 
-  $("#add-website").click(function(){
-    // We need to wait for it to load before it can focus
-    var x = setTimeout('$("#website-url").focus()', 500);
-  }) 
+
+  $('#add-website-modal').on('shown.bs.modal', function () {
+    $('#website-url').focus();
+  })
 
   $("#add-note").click(function(){ 
     var x = setTimeout('$("#note").focus()', 500);

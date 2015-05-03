@@ -135,7 +135,7 @@ body {
 #garbage-can{
   position:absolute;
   top: 560px;
-  right: 90px;
+  left: 1083px;
   height: 100px;
   width: 100px;
   z-index: 4;
@@ -158,12 +158,15 @@ body {
 }
 
 #paintbrush{
-  height: 50px;
+  height: 65px;
   position: absolute;
-  right: 110px;
+  left: 1088px;
   top: 140px;
-  opacity: .5;
   z-index: 4;
+}
+
+#paintbrush:hover{
+  cursor: pointer;
 }
 
 #add-board {

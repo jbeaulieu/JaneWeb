@@ -96,6 +96,7 @@
         <td>
           <div id="corkboard-holder">
             <div id="board-name" class="change-color" align="center">No Current Boards</div>
+            <div id="corkboard-border"></div>
             <img id="corkboard" src="corkboard.png" height="550px" alt="corkboard"/>
             <div id="corkboard-overlay"> </div>
           </div>
@@ -104,13 +105,15 @@
       </tr>
       
     </table>
-    <input class="color {slider: false, pickerFaceColor:'transparent', valueElement:'myValue', pickerFace:3,pickerBorder:0,pickerInsetColor:'black', onImmediateChange:'updateBorder(this.color);'}" onchange="updateBorder(this.color)"> 
+    <input id="myValue" />
+    <input class="color {slider: false, pickerFaceColor:'transparent', valueElement:'myValue', pickerFace:3,pickerBorder:0,pickerInsetColor:'black', onImmediateChange:'updateBorder();'}" onchange="updateBorder()"> 
     <img id="paintbrush" src="images/paintbrush.png" />
     <div id="garbage-can" class="garbage1"></div>
 
     <script type="text/javascript">
-      var updateBorder = function(color){
-        $("#corkboard").css("border", "15px solid #" + color);
+      var updateBorder = function(){
+        var color = $("#myValue")[0].value;
+        $("#corkboard-border").css("background-color", "#" + color);
         $(".change-color").css("color", "#" + color);
         $(".color").css("color", "rgba(0, 0, 0, 0");
       }

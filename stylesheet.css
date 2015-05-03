@@ -113,29 +113,37 @@ body {
   font-weight: 300;
 }
 
-#corkboard{
+#corkboard-border{
   position: absolute;
   z-index: 0;
+  height: 580px;
+  width: 1070px;
   top: 40px;
   left: 0px;
-  border: 15px solid #517985;
+  background-color: #517985;
+}
+
+#corkboard{
+  position: absolute;
+  z-index: 1;
+  top: 55px;
+  left: 15px;
   width: 100%;
 }
 
 #corkboard-overlay{
   position: absolute;
-  z-index: 1;
-  top: 40px;
-  left: 0px;
+  z-index: 2;
+  top: 55px;
+  left: 15px;
   height: 550px;
-  /*width: 840px;*/
   width: 100%;
 }
 
 #garbage-can{
   position:absolute;
-  top: 560px;
-  left: 1083px;
+  top: 580px;
+  left: 1113px;
   height: 100px;
   width: 100px;
   z-index: 4;
@@ -151,17 +159,21 @@ body {
 
 .color {
   position: absolute;
-  left: 1039px;
+  left: 1067px;
   top: 90px;
   visibility: hidden;
   z-index: 10;
   color: rgba(0, 0, 0, 0);
 }
 
+#myValue {
+  visibility: hidden;
+}
+
 #paintbrush{
   height: 65px;
   position: absolute;
-  left: 1088px;
+  left: 1118px;
   top: 140px;
   z-index: 4;
 }
@@ -224,8 +236,6 @@ body {
 }
 
 #photo {
-	width: 200px;
-	height: 200px;
 	position: absolute;
 }
 

@@ -226,6 +226,10 @@ body {
   white-space: pre-wrap;
 }
 
+.modal-dialog {
+  width:400px;
+}
+
 .list {
 	background: url('images/paperImage.png');
   background-size: 250px 250px;

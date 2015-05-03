@@ -1,30 +1,13 @@
 // This allows the Javascript code inside this block to only run when the page
 // has finished loading in the browser.
 $(document).ready(function() {
+  var note_id_num = 1; //each note has a unique id number
+  var list_id_num = 1; //each list has a unique id number
+  var item_id_num = 1; //every item from every list has a unique id num to differeniate
 
 
   $('#add-website-modal').on('shown.bs.modal', function () {
     $('#website-url').focus();
-  })
-
-  $("#add-note").click(function(){ 
-    var x = setTimeout('$("#note").focus()', 500);
-  })
-
-  $("#add-checklist").click(function(){
-    setTimeout('$("#checklistTitle").focus()', 500);
-    $("#item").bind("keypress", function(event) {
-      if(event.which == 13) {
-      event.preventDefault();
-        addItemToChecklist();
-      }
-    });
-    $("#checklistTitle").bind("keypress", function(event) {
-      if(event.which == 13) {
-      event.preventDefault();
-        $("#item").focus();
-      }
-    });
   })
 
   // This is the button INSIDE the add website modal
@@ -40,29 +23,37 @@ $(document).ready(function() {
   });
 
   //clicking the add note button should start to create a new note
-  $("#add-note-btn").click(function (e) {
-    var note = $("#note").val();
-    $("#note").val("");
-    $("#corkboard-overlay").append(createNoteObject(note));
+  $("#add-note").click(function (e) {
+    //create a note with one of the unique ids
+    var note_id = "note"+ note_id_num;
+    $("#corkboard-overlay").append(createNoteObject(note_id));
     $('.draggable').draggable({
       containment: "#corkboard-overlay"
     });
-
+    $("#"+note_id+"").on("click",function( event, ui ) {
+        noteClicked(note_id);
+    });
+    note_id_num +=1;
   });
 
   // Adds the checklist to the board
-  $("#add-checklist-btn").click(function (e) {
-    console.log("clicked add-checklist");
-    var checklistTitle = $("#checklistTitle").val();
-    var checklistItems = $("#list").html();
-    //empty the fields
-    $("#item").val("");
-    $("#checklistTitle").val("");
-    $("#list").empty();
-    $("#corkboard-overlay").append(createChecklistObject(checklistTitle, checklistItems));
+  $("#add-checklist").click(function (e) {
+    var list_id = "list" + list_id_num;
+    $("#corkboard-overlay").append(createChecklistObject(list_id));
     $('.draggable').draggable({
       containment: "#corkboard-overlay"
     });
+    $("#"+list_id+"Title").on("click",function (event, ui ) {
+      listTitleClicked(list_id);
+    });
+    $("#"+list_id+"Items").on("click",function (event, ui) {
+      listItemsClicked(list_id);
+    });
+    //when you click the add checklist button, add an item
+    $("#"+list_id+"add-checklist-item").on("click",function (event, ui ){
+      addChecklistItem(list_id);
+    });
+    list_id_num +=1;
   });
 
   //clicking the add photo button will pop up a screen to pick a photo from the screen
@@ -76,26 +67,7 @@ $(document).ready(function() {
       containment: "#corkboard-overlay"
     });
   });
-
-  // code for checklist modal from Ronalds Vilcins. Found at
-  // http://codepen.io/RonaldsVilcins/pen/iJxGB
-  // add item to the checklist
-  $('#add-checklist-item').click(function () {
-    addItemToChecklist();
-  });
-
-  $("body").on('click', '#list a', function () {
-      $(this).closest("li").remove();
-  });
-
 });
-
-var addItemToChecklist = function(){
-  $("<li>" + $("input[name=item]").val() + " <a id='deleter' href='#' class='close' aria-hidden='true'>&times;</a></li>").appendTo("#list")
-  //$('#list').appendChild("<li>" + $("input[name=item]").val() + " <a href='#' class='close' aria-hidden='true'>&times;</a></li>");
-  $("#item").val("");
-  $("#item").focus();
-}
 
 // Source for thumbnails: http://pagepeeker.com/website-thumbnails-api/
 var createWebsiteObject = function(url){
@@ -115,17 +87,18 @@ var createWebsiteObject = function(url){
   return offsetObject(link);
 };
 
-var createNoteObject = function(note){
-  var note = $("<div class='button draggable "+activeUser+"' id='note-image'><p>"+note+"</p></div>");
-  return offsetObject(note);  
- 
+var createNoteObject = function(note_id){
+  var note = $("<div class='button draggable note "+activeUser+"' id='"+note_id+"'></div>");
+  return offsetObject(note);
 }
 
-var createChecklistObject = function(title, items){
+var createChecklistObject = function(list_id){
 
-  var checklist = $("<div class='button draggable "+activeUser+"' id='checklist-image'>"+
-                      "<h4>"+title+"</h4>" + 
-                      "<ul class='list-unstyled'>"+items+"</ul></div>");
+  var checklist = $("<div class='button draggable list "+activeUser+"' id='"+list_id+"'>"+
+                      "<h4 id='"+list_id+"Title'> title </h4>" +
+                      "<ul id='"+list_id+"Items' class='list-unstyled'></ul>" +
+                      "<input visibility='hidden' maxlength='20' id = '"+list_id+"Input' type='text' class='form-control' placeholder='New item' name="+list_id+"'item'>"+
+                      "<button visibility='hidden' type='submit' id='"+list_id+"add-checklist-item' class='btn btn btn-primary'>Add</button></div>");
   return offsetObject(checklist);
 }
 

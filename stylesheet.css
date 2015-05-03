@@ -151,10 +151,11 @@ body {
 
 .color {
   position: absolute;
-  left: 960px;
-  top: 123px;
+  left: 1039px;
+  top: 90px;
   visibility: hidden;
   z-index: 10;
+  color: rgba(0, 0, 0, 0);
 }
 
 #paintbrush{

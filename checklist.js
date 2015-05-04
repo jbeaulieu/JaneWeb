@@ -19,16 +19,16 @@ var listTitleClicked = function(list_id, isParent){
 	    $("#"+list_id+"Title").replaceWith(editableTitleText);
 	    $("#"+list_id+"Title").css({"top":top, "left":left});
 	    $("#"+list_id+"Title").html(titleText);
-	    $("#"+list_id+"Title").keypress(function (event, isParent){
-	      if (event.which == 13){
-	        editableListTitleBlurred(list_id, isParent);
-	      }
-	    });
 	    editableTitleText.focus();
 	    // setup the blur event for this new textarea
 	    $("#"+list_id+"Title").on("blur",function (event, ui) {
-	        editableListTitleBlurred(list_id, isParent);
-	      });
+	    	editableListTitleBlurred(list_id, isParent);
+	    });
+	    $("#"+list_id+"Title").keypress(function (event, isParent){
+	      if (event.which == 13){
+	        $("#"+list_id+"Title").blur();
+	      };
+	    });
 	};
 }
 

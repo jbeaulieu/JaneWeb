@@ -1,6 +1,8 @@
 var passwordHash;
+var isParent = [];
 
 $(document).ready(function(){
+    isParent[0]=true;
     $("#view-parent-board").hide();
 
     //border stuff
@@ -76,6 +78,9 @@ String.prototype.hashCode = function(){
 }
 
 var showChildBoard = function(){
+    isParent[0]=false;
+    //get rid of any editables that are currently showing
+    //blurEditables(isParent);
     var corkboardOffset = $("#corkboard-holder").offset();
     $(".add-button").hide();
     var parentBoardName = $("#board-name").text();
@@ -91,6 +96,7 @@ var showChildBoard = function(){
 }
 
 var showParentBoard = function(){
+    isParent[0]=true;
     $(".add-button").show();
     $("#add-board").show()
     $("#view-child-board").show();

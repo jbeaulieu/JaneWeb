@@ -61,7 +61,7 @@ $(document).ready(function(){
 
     $("#password-child").keypress(function(e){
         if (e.which == 13){
-        $("#password-child-enter").click();
+            $("#password-child-enter").click();
         }
     })
 });

@@ -101,6 +101,7 @@
             <div id="corkboard-overlay"> </div>
             <img id="paintbrush" src="images/paintbrush.png" />
             <div id="garbage-can" class="garbage1"></div>
+            <input class="color {slider: false, pickerFaceColor:'transparent', valueElement:'myValue', pickerFace:3,pickerBorder:0,pickerInsetColor:'black', onImmediateChange:'updateBorder();'}" onchange="updateBorder()"> 
           </div>
         </td>
         <td id="right-border-space"></td>
@@ -108,7 +109,6 @@
       
     </table>
     <input id="myValue" />
-    <input class="color {slider: false, pickerFaceColor:'transparent', valueElement:'myValue', pickerFace:3,pickerBorder:0,pickerInsetColor:'black', onImmediateChange:'updateBorder();'}" onchange="updateBorder()"> 
 
     <script type="text/javascript">
       var updateBorder = function(){

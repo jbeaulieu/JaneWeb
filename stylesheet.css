@@ -140,10 +140,10 @@ body {
 
 #garbage-can{
   position:absolute;
-  top: 580px;
-  left: 1113px;
   height: 100px;
   width: 100px;
+  bottom: 15px;
+  right: -25px;
   z-index: 4;
 }
 
@@ -170,9 +170,9 @@ body {
 
 #paintbrush{
   height: 65px;
+  top: 55px;
+  right: -10px;
   position: absolute;
-  left: 1118px;
-  top: 140px;
   z-index: 4;
 }
 

@@ -3,6 +3,13 @@ var passwordHash;
 $(document).ready(function(){
     $("#view-parent-board").hide();
 
+    //border stuff
+    var border = $("#corkboard-border");
+    var corkboard = $("#corkboard");
+
+    border.css("height", corkboard.height() + 30);
+    border.css("width", corkboard.width() + 30);
+
     $('#set-password-modal').on('shown.bs.modal', function () {
         $('#password-first').focus();
         $('#passwords-match-error').text("");

@@ -116,8 +116,6 @@ body {
 #corkboard-border{
   position: absolute;
   z-index: 0;
-  height: 580px;
-  width: 1070px;
   top: 40px;
   left: 0px;
   background-color: #517985;

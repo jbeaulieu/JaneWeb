@@ -251,7 +251,8 @@ body {
 
 .list_inputs{
   width: 160px;
-  /*margin: 5px 5px 5px 5px;*/
+  height: 25px;
+  margin: 5px 5px 5px 5px;
   position: absolute;
 }
 

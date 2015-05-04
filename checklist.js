@@ -80,6 +80,7 @@ var addChecklistItem = function (list_id){
 	//If the list is too long, force a blur of the input field (causing the add-ability to go away)
 	if ($("#"+list_id+"Items li").length >=12){
 		$("#"+list_id+"input").blur();
+		$('#'+list_id+'input').val("");
 		editableListItemsBlurred(list_id);
 	}
 }

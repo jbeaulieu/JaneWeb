@@ -65,7 +65,7 @@ $(document).ready(function() {
     $("#"+list_id+"Title").on("click",function (event, ui ) {
       listTitleClicked(list_id);
     });
-    //when you click the add checklist button, add an item
+    //when you click the add item button, add the input field as an item to the list
     $("#"+list_id+"add-checklist-item").on("click",function (event, ui ){
       addChecklistItem(list_id);
       item_id_num+=1;
@@ -78,6 +78,10 @@ $(document).ready(function() {
       if (event.which == 13){
         addChecklistItem(list_id);
         item_id_num+=1;
+      }
+      //if the input is not visible, you should not be able to write in it.
+      if ($("#"+list_id+"Items li").length >=12){
+        $('#'+list_id+'input').val("");
       }
     });
     list_id_num +=1;

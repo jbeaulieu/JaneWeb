@@ -24,9 +24,9 @@ $(document).ready(function(){
         } else{
             passwordHash = p1.hashCode();
             showChildBoard();
-            $("#set-password-modal").hide();
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
+            //$("#set-password-modal").hide();
+            //$('body').removeClass('modal-open');
+            //$('.modal-backdrop').remove();
             
         }
 
@@ -50,6 +50,15 @@ $(document).ready(function(){
         }
     })
 
+    console.log("hm");
+    // $('#add-website').bind('hidden.bs.modal', function () {
+    //     console.log("hi");
+    //     $("html").css("margin-right", "0px");
+    // });
+    // $('#add-website').bind('show.bs.modal', function () {
+    //     console.log("hii");
+    //     $("html").css("margin-right", "-15px");
+    // });
 });
 
 String.prototype.hashCode = function(){

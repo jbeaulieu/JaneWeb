@@ -6,6 +6,20 @@ html, body{
 
 body {
     padding-top: 50px;
+
+}
+
+body {
+overflow-y: scroll;
+}
+
+body.modal-open {
+overflow-y: scroll;
+margin: 0;
+}
+
+.modal {
+overflow: auto;
 }
 
 #main-table {

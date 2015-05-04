@@ -48,7 +48,7 @@ $(document).ready(function() {
       containment: "#corkboard-overlay"
     });
     $("#"+note_id+"").on("click",function( event, ui ) {
-        noteClicked(note_id);
+        noteClicked(note_id, isParent);
     });
     note_id_num +=1;
   });
@@ -63,20 +63,20 @@ $(document).ready(function() {
       containment: "#corkboard-overlay"
     });
     $("#"+list_id+"Title").on("click",function (event, ui ) {
-      listTitleClicked(list_id);
+      listTitleClicked(list_id, isParent);
     });
     //when you click the add item button, add the input field as an item to the list
     $("#"+list_id+"add-checklist-item").on("click",function (event, ui ){
-      addChecklistItem(list_id);
+      addChecklistItem(list_id, isParent);
       item_id_num+=1;
     });
     $("#"+list_id+"editableItems").on("click",function (event, ui ){
-      listItemsClicked(list_id);
+      listItemsClicked(list_id, isParent);
       $("#"+list_id+"input").focus();
     });
     $("#"+list_id+"input").keypress(function (event){
       if (event.which == 13){
-        addChecklistItem(list_id);
+        addChecklistItem(list_id, isParent);
         item_id_num+=1;
       }
       //if the input is not visible, you should not be able to write in it.

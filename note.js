@@ -5,7 +5,6 @@ $(document).ready(function(){
 // User Anurag
 var noteClicked = function(note_id, isParent){
 	if (isParent[0] ==true){
-		console.log(isParent);
 		var top = $("#"+note_id+"").css("top");
 	    var left = $("#"+note_id+"").css("left");
 	    var text = $("#"+note_id+"").html();

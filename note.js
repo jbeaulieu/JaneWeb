@@ -3,27 +3,29 @@ $(document).ready(function(){
 
 // From http://stackoverflow.com/questions/2441565/how-do-i-make-a-div-element-editable-like-a-textarea-when-i-click-it
 // User Anurag
-var noteClicked = function(note_id){
-    var top = $("#"+note_id+"").css("top");
-    var left = $("#"+note_id+"").css("left");
-    var text = $("#"+note_id+"").html();
-    //rows="4" chars="40" onkeyup="limitTextareaLine(this,
-    var editableText = $("<textarea wrap='off' rows='7' cols='17' onkeyup='limitNoteTextArea(this)' "+
-    					 "class = 'button draggable note "+activeUser+"' id='"+ note_id + "'> </textarea>");
+var noteClicked = function(note_id, isParent){
+	if (isParent[0] ==true){
+		var top = $("#"+note_id+"").css("top");
+	    var left = $("#"+note_id+"").css("left");
+	    var text = $("#"+note_id+"").html();
+	    //rows="4" chars="40" onkeyup="limitTextareaLine(this,
+	    var editableText = $("<textarea wrap='off' rows='7' cols='17' onkeyup='limitNoteTextArea(this)' "+
+	    					 "class = 'button draggable note "+activeUser+"' id='"+ note_id + "'> </textarea>");
 
-    $("#"+note_id+"").replaceWith(editableText);
-    $("#"+note_id+"").css({"top":top, "left":left});
-    $("#"+note_id+"").html(text);
-    editableText.focus();
-    $('.draggable').draggable({
-      containment: "#corkboard-overlay"
-    });
-    // setup the blur event for this new textarea
-    $("#"+note_id+"").on("blur",function (event, ui) {
-        editableNoteTextBlurred(note_id);
-      });
+	    $("#"+note_id+"").replaceWith(editableText);
+	    $("#"+note_id+"").css({"top":top, "left":left});
+	    $("#"+note_id+"").html(text);
+	    editableText.focus();
+	    $('.draggable').draggable({
+	      containment: "#corkboard-overlay"
+	    });
+	    // setup the blur event for this new textarea
+	    $("#"+note_id+"").on("blur",function (event, ui) {
+	        editableNoteTextBlurred(note_id, isParent);
+	      });
+	};
 }
-var editableNoteTextBlurred = function(note_id){
+var editableNoteTextBlurred = function(note_id, isParent){
     var top = $("#"+note_id+"").css("top");
     var left = $("#"+note_id+"").css("left");
     var text = $("#"+note_id+"").val();
@@ -37,7 +39,7 @@ var editableNoteTextBlurred = function(note_id){
       containment: "#corkboard-overlay"
     });
     $("#"+note_id+"").on("click",function (event, ui) {
-    	noteClicked(note_id);
+    	noteClicked(note_id, isParent);
     });
 }
 

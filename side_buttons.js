@@ -11,15 +11,21 @@ $(document).ready(function() {
   })
 
   // This is the button INSIDE the add website modal
-  $("#add-website-btn").click(function (e) {
+  $("#add-website-btn").submit(function (e) {
     console.log("clicked add-website");
-    var url = $("#website-url").val();
-    console.log("url", url);
-    $("#website-url").val("");
-    $("#corkboard-overlay").append(createWebsiteObject(url));
-    $('.draggable').draggable({
-      containment: "#corkboard-overlay"
-    });
+    var url = $("#website-url").val().trim();
+    if (urlIsValid(url)){
+      $("#website-url").val("");
+      $("#corkboard-overlay").append(createWebsiteObject(url));
+      $('.draggable').draggable({
+        containment: "#corkboard-overlay"
+      });
+      $("#add-website-error-msg").text("");
+    } else{
+      e.preventDefault();
+      $("#add-website-error-msg").text("Please enter a valid URL.");
+    }
+    
   });
 
   //clicking the add note button should start to create a new note
@@ -122,4 +128,15 @@ var updateOffset = function(offset){
     offset.left += 220;
   }
   //offsettop?
+}
+
+var urlIsValid = function(url){
+  if (url.contains(" ")){
+    return false
+  }
+  var splitUrl = url.split(".");
+  if (splitUrl.length == 1){ // there was no period
+    return false;
+  }
+  return true;
 }

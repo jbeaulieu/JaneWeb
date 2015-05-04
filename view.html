@@ -135,7 +135,8 @@
               <div class="input-group">
                 <span class="input-group-addon" id="url-beginning">http://www.</span>
                 <input type="text" id="website-url" class="form-control" aria-describedby="url-beginning"></input>
-              </div>
+              </div><br> 
+              <p id="add-website-error-msg" class="error-message"></p>
 
           </div>
           <div class="modal-footer">
@@ -179,17 +180,19 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Set a Password for this board</h4>
         </div>
+        <form>
         <div class="modal-body">
           <p>Set a parent password:</p>
           <input class="password" id="password-first" type="password"></input>
           <p>Retype the password:</p>
           <input class="password" id="password-second" type="password"></input>
-          <span class="password-error-message" id="passwords-match-error"></span>
+          <span class="error-message" id="passwords-match-error"></span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button id="save-password-btn" type="submit" data-dismiss="modal" class="btn btn-primary">Save Password</button>
+          <button id="save-password-btn" type="submit"data-dismiss="modal" class="btn btn-primary">Save Password</button>
         </div>
+      </form>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
@@ -205,7 +208,7 @@
         <div class="modal-body">
           <p>Enter your password to return to the parent board:</p>
           <input class="password" id="password-child" type="password"></input>
-          <span class="password-error-message" id="incorrect-password-msg"></span>
+          <span class="error-message" id="incorrect-password-msg"></span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

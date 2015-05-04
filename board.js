@@ -15,7 +15,8 @@ $(document).ready(function(){
         $('#passwords-match-error').text("");
     })
 
-    $("#save-password-btn").click(function(e){
+    $("#set-password-modal").on('hide.bs.modal', function(e){
+        console.log("hide");
         p1 = $("#password-first").val();
         p2 = $("#password-second").val();
         if (p1 != p2){
@@ -23,13 +24,8 @@ $(document).ready(function(){
             $("#passwords-match-error").text("Your passwords don't match!");
         } else{
             passwordHash = p1.hashCode();
-            showChildBoard();
-            //$("#set-password-modal").hide();
-            //$('body').removeClass('modal-open');
-            //$('.modal-backdrop').remove();
-            
+            showChildBoard();            
         }
-
     })
 
     $("#enter-password-modal").on('shown.bs.modal', function(){

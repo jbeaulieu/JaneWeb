@@ -57,20 +57,38 @@ $(document).ready(function() {
   $("#add-checklist").click(function (e) {
     var list_id = "list" + list_id_num;
     $("#corkboard-overlay").append(createChecklistObject(list_id));
+    $("#"+list_id+"input").css("visibility", "hidden");
+    $('#'+list_id+'add-checklist-item').css("visibility", "hidden");
     $('.draggable').draggable({
       containment: "#corkboard-overlay"
     });
     $("#"+list_id+"Title").on("click",function (event, ui ) {
       listTitleClicked(list_id);
     });
-    $("#"+list_id+"Items").on("click",function (event, ui) {
-      listItemsClicked(list_id);
-    });
-    //when you click the add checklist button, add an item
+    //when you click the add item button, add the input field as an item to the list
     $("#"+list_id+"add-checklist-item").on("click",function (event, ui ){
       addChecklistItem(list_id);
+      item_id_num+=1;
+    });
+    $("#"+list_id+"editableItems").on("click",function (event, ui ){
+      listItemsClicked(list_id);
+      $("#"+list_id+"input").focus();
+    });
+    $("#"+list_id+"input").keypress(function (event){
+      if (event.which == 13){
+        addChecklistItem(list_id);
+        item_id_num+=1;
+      }
+      //if the input is not visible, you should not be able to write in it.
+      if ($("#"+list_id+"Items li").length >=12){
+        $('#'+list_id+'input').val("");
+      }
     });
     list_id_num +=1;
+    $("body").on('click', '#'+list_id+'Items a', function () {
+
+      $(this).closest("li").remove();
+    });
   });
 
   //clicking the add photo button will pop up a screen to pick a photo from the screen
@@ -112,10 +130,11 @@ var createNoteObject = function(note_id){
 var createChecklistObject = function(list_id){
 
   var checklist = $("<div class='button draggable list "+activeUser+"' id='"+list_id+"'>"+
-                      "<h4 id='"+list_id+"Title'> title </h4>" +
-                      "<ul id='"+list_id+"Items' class='list-unstyled'></ul>" +
-                      "<input visibility='hidden' maxlength='20' id = '"+list_id+"Input' type='text' class='form-control' placeholder='New item' name="+list_id+"'item'>"+
-                      "<button visibility='hidden' type='submit' id='"+list_id+"add-checklist-item' class='btn btn btn-primary'>Add</button></div>");
+                      "<h4 id='"+list_id+"Title' class='mono_font'> title </h4>" +
+                      "<ul id='"+list_id+"Items' class='list-unstyled mono_font'> </ul>" +
+                      "<div id='"+list_id+"editableItems' class='list_inputs'><input maxlength='17' id = '"+list_id+"input' type='text' class='form-control' "+
+                      "placeholder='New item' name="+list_id+"'item'>"+
+                      "<button type='submit' id='"+list_id+"add-checklist-item' class='btn btn btn-primary'>Add</button></div></div>");
   return offsetObject(checklist);
 }
 

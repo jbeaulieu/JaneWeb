@@ -224,6 +224,7 @@ body {
   word-wrap: break-word;
   white-space: pre-wrap;
   font-family: "Andale Mono", monospace;
+  box-shadow: 2px 2px 2px 2px #888888;
 }
 
 .modal-dialog {

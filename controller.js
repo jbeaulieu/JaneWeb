@@ -16,6 +16,14 @@ $(document).ready(function() {
       // $("#board-switcher").append('<li><a href="#">' + newName + '</a></li>')
 	    activeUser = newName;
     }
+
+    $(window).resize(function (e) {
+      var border = $("#corkboard-border");
+      var corkboard = $("#corkboard");
+
+      border.css("height", corkboard.height() + 30);
+      border.css("width", corkboard.width() + 30);
+    });
     
     //clicking the add new board button should prompt for the name of the new board
     $("#add-board").click(function (e) {

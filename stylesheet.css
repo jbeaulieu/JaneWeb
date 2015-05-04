@@ -6,6 +6,7 @@ html, body{
 
 body {
     padding-top: 50px;
+
 }
 
 #main-table {
@@ -116,8 +117,6 @@ body {
 #corkboard-border{
   position: absolute;
   z-index: 0;
-  height: 580px;
-  width: 1070px;
   top: 40px;
   left: 0px;
   background-color: #517985;
@@ -142,10 +141,10 @@ body {
 
 #garbage-can{
   position:absolute;
-  top: 580px;
-  left: 1113px;
   height: 100px;
   width: 100px;
+  bottom: 15px;
+  right: 10px;
   z-index: 4;
 }
 
@@ -159,8 +158,8 @@ body {
 
 .color {
   position: absolute;
-  left: 1067px;
-  top: 90px;
+  top: 10px;
+  right: -30px;
   visibility: hidden;
   z-index: 10;
   color: rgba(0, 0, 0, 0);
@@ -172,9 +171,9 @@ body {
 
 #paintbrush{
   height: 65px;
+  top: 55px;
+  right: 20px;
   position: absolute;
-  left: 1118px;
-  top: 140px;
   z-index: 4;
 }
 
@@ -225,6 +224,10 @@ body {
   word-wrap: break-word;
   white-space: pre-wrap;
   font-family: "Andale Mono", monospace;
+}
+
+.modal-dialog {
+  width:400px;
 }
 
 .list {
@@ -287,10 +290,26 @@ li {
   right: 43px;
 }
 
-.password-error-message{
+.error-message{
   color: red;
 }
 
 textarea {
     resize: none;
 }
+
+
+/* Below makes the modal not shift everything to the left when it's opened.
+Source: http://stackoverflow.com/questions/19337238/twitter-bootstrap-modal-pushes-html-content-to-the-left
+html {
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  overflow: auto;
+  height: 100%;
+}
+
+.modal-open {
+ overflow: auto; 
+} */

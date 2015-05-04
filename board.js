@@ -3,12 +3,25 @@ var passwordHash;
 $(document).ready(function(){
     $("#view-parent-board").hide();
 
+    //border stuff
+    var border = $("#corkboard-border");
+    var corkboard = $("#corkboard");
+    border.css("height", corkboard.height() + 30);
+    setSizes();
+
+    $(window).resize(function() { 
+        setSizes(); 
+    });
+
     $('#set-password-modal').on('shown.bs.modal', function () {
         $('#password-first').focus();
         $('#passwords-match-error').text("");
     })
 
+
+    // Verifies the parent-set passwords and saves it
     $("#save-password-btn").click(function(e){
+  
         p1 = $("#password-first").val();
         p2 = $("#password-second").val();
         if (p1 != p2){
@@ -16,13 +29,16 @@ $(document).ready(function(){
             $("#passwords-match-error").text("Your passwords don't match!");
         } else{
             passwordHash = p1.hashCode();
-            showChildBoard();
-            $("#set-password-modal").hide();
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-            
+            $("#set-password-modal").modal('hide');
+            showChildBoard();            
         }
+    })
 
+    // Binds the enter key to either of the password input fields
+    $(".set-password").keypress(function(e){
+        if (e.which == 13){
+        $("#save-password-btn").click();
+        }
     })
 
     $("#enter-password-modal").on('shown.bs.modal', function(){
@@ -34,15 +50,18 @@ $(document).ready(function(){
         password = $("#password-child").val();
         if (password.hashCode() == passwordHash){
             $("#password-child").val("");
-            $("#enter-password-modal").hide();
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
+            $("#enter-password-modal").modal('hide');
             showParentBoard();
         } else{
             $("#incorrect-password-msg").text("Incorrect password. Please try again.");
         }
     })
 
+    $("#password-child").keypress(function(e){
+        if (e.which == 13){
+        $("#password-child-enter").click();
+        }
+    })
 });
 
 String.prototype.hashCode = function(){
@@ -81,4 +100,10 @@ var showParentBoard = function(){
     $("#garbage-can").show();
     $("#paintbrush").show();
     $("#board-switcher").show();
+}
+
+var setSizes = function(){
+    var corkboardTdWidth = $("#corkboard-td").width();
+    $("#corkboard-border").css("width", corkboardTdWidth);
+    $("#corkboard").css("width", corkboardTdWidth - 30);
 }

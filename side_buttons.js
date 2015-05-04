@@ -12,15 +12,32 @@ $(document).ready(function() {
 
   // This is the button INSIDE the add website modal
   $("#add-website-btn").click(function (e) {
-    console.log("clicked add-website");
-    var url = $("#website-url").val();
-    console.log("url", url);
-    $("#website-url").val("");
-    $("#corkboard-overlay").append(createWebsiteObject(url));
-    $('.draggable').draggable({
-      containment: "#corkboard-overlay"
-    });
+    var url = $("#website-url").val().trim();
+    if (urlIsValid(url)){
+      $("#website-url").val("");
+      $("#corkboard-overlay").append(createWebsiteObject(url));
+      $('.draggable').draggable({
+        containment: "#corkboard-overlay"
+      });
+
+      $("#add-website-modal").modal('hide');
+             
+    } else{
+      $("#add-website-error-msg").text("Please enter a valid URL.");
+    }
+    
   });
+
+  $("#add-website-modal").on('hide.bs.modal', function(e){
+    $("#add-website-error-msg").text("");  
+  })
+
+  $("#website-url").keypress(function(e){
+    if (e.which == 13){
+      $("#add-website-btn").click();
+    }
+  })
+
 
   //clicking the add note button should start to create a new note
   $("#add-note").click(function (e) {
@@ -137,4 +154,15 @@ var updateOffset = function(offset){
     offset.left += 220;
   }
   //offsettop?
+}
+
+var urlIsValid = function(url){
+  if (url.contains(" ")){
+    return false
+  }
+  var splitUrl = url.split(".");
+  if (splitUrl.length == 1){ // there was no period
+    return false;
+  }
+  return true;
 }

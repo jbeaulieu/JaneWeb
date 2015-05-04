@@ -93,12 +93,15 @@
             </tr>
           </table>
         </td>
-        <td>
+        <td id="corkboard-td">
           <div id="corkboard-holder">
             <div id="board-name" class="change-color" align="center">No Current Boards</div>
             <div id="corkboard-border"></div>
             <img id="corkboard" src="corkboard.png" height="550px" alt="corkboard"/>
             <div id="corkboard-overlay"> </div>
+            <img id="paintbrush" src="images/paintbrush.png" />
+            <div id="garbage-can" class="garbage1"></div>
+            <input class="color {slider: false, pickerFaceColor:'transparent', valueElement:'myValue', pickerFace:3,pickerBorder:0,pickerInsetColor:'black', onImmediateChange:'updateBorder();'}" onchange="updateBorder()"> 
           </div>
         </td>
         <td id="right-border-space"></td>
@@ -106,9 +109,6 @@
       
     </table>
     <input id="myValue" />
-    <input class="color {slider: false, pickerFaceColor:'transparent', valueElement:'myValue', pickerFace:3,pickerBorder:0,pickerInsetColor:'black', onImmediateChange:'updateBorder();'}" onchange="updateBorder()"> 
-    <img id="paintbrush" src="images/paintbrush.png" />
-    <div id="garbage-can" class="garbage1"></div>
 
     <script type="text/javascript">
       var updateBorder = function(){
@@ -121,28 +121,27 @@
     
 
     <!-- modal for add-website -->
-    <div class="modal fade" id="add-website-modal" tabindex="-1" role="dialog" aria-labelledby="add-website-modal" aria-hidden="true">
+    <div class="modal" id="add-website-modal" tabindex="-1" role="dialog" aria-labelledby="add-website-modal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="add-website-modal-label">Add Website</h4>
           </div>
-          <form>
             <div class="modal-body">
               <label for="newWebsite">Website URL:</label>
               
               <div class="input-group">
                 <span class="input-group-addon" id="url-beginning">http://www.</span>
                 <input type="text" id="website-url" class="form-control" aria-describedby="url-beginning"></input>
-              </div>
+              </div><br>
+              <p id="add-website-error-msg" class="error-message"></p>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="submit" id="add-website-btn" class="btn btn-primary" data-dismiss="modal">Add</button>
+            <button type="submit" id="add-website-btn" class="btn btn-primary" >Add</button>
           </div>
-        </form>
       </div>
     </div>
   </div>
@@ -172,7 +171,7 @@
   </div>
 
   <!-- Modal for setting the password -->
-  <div class="modal fade" id="set-password-modal" tabindex="-1" role="dialog" aria-labelledby="parentsetpassword" aria-hidden="true">
+  <div class="modal" id="set-password-modal" tabindex="-1" role="dialog" aria-labelledby="parentsetpassword" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -181,10 +180,10 @@
         </div>
         <div class="modal-body">
           <p>Set a parent password:</p>
-          <input class="password" id="password-first" type="password"></input>
+          <input class="password set-password" id="password-first" type="password"></input>
           <p>Retype the password:</p>
-          <input class="password" id="password-second" type="password"></input>
-          <span class="password-error-message" id="passwords-match-error"></span>
+          <input class="password set-password" id="password-second" type="password"></input>
+          <span class="error-message" id="passwords-match-error"></span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -195,7 +194,7 @@
   </div><!-- /.modal -->
 
   <!-- Modal for entering in the password -->
-  <div class="modal fade" id="enter-password-modal" tabindex="-1" role="dialog" aria-labelledby="enterpassword" aria-hidden="true">
+  <div class="modal" id="enter-password-modal" tabindex="-1" role="dialog" aria-labelledby="enterpassword" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -205,7 +204,7 @@
         <div class="modal-body">
           <p>Enter your password to return to the parent board:</p>
           <input class="password" id="password-child" type="password"></input>
-          <span class="password-error-message" id="incorrect-password-msg"></span>
+          <span class="error-message" id="incorrect-password-msg"></span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

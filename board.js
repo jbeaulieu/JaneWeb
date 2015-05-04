@@ -6,17 +6,22 @@ $(document).ready(function(){
     //border stuff
     var border = $("#corkboard-border");
     var corkboard = $("#corkboard");
-
     border.css("height", corkboard.height() + 30);
-    border.css("width", corkboard.width() + 30);
+    setSizes();
+
+    $(window).resize(function() { 
+        setSizes(); 
+    });
 
     $('#set-password-modal').on('shown.bs.modal', function () {
         $('#password-first').focus();
         $('#passwords-match-error').text("");
     })
 
-    $("#set-password-modal").on('hide.bs.modal', function(e){
-        console.log("hide");
+
+    // Verifies the parent-set passwords and saves it
+    $("#save-password-btn").click(function(e){
+  
         p1 = $("#password-first").val();
         p2 = $("#password-second").val();
         if (p1 != p2){
@@ -24,7 +29,15 @@ $(document).ready(function(){
             $("#passwords-match-error").text("Your passwords don't match!");
         } else{
             passwordHash = p1.hashCode();
+            $("#set-password-modal").modal('hide');
             showChildBoard();            
+        }
+    })
+
+    // Binds the enter key to either of the password input fields
+    $(".set-password").keypress(function(e){
+        if (e.which == 13){
+        $("#save-password-btn").click();
         }
     })
 
@@ -37,24 +50,18 @@ $(document).ready(function(){
         password = $("#password-child").val();
         if (password.hashCode() == passwordHash){
             $("#password-child").val("");
-            $("#enter-password-modal").hide();
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
+            $("#enter-password-modal").modal('hide');
             showParentBoard();
         } else{
             $("#incorrect-password-msg").text("Incorrect password. Please try again.");
         }
     })
 
-    console.log("hm");
-    // $('#add-website').bind('hidden.bs.modal', function () {
-    //     console.log("hi");
-    //     $("html").css("margin-right", "0px");
-    // });
-    // $('#add-website').bind('show.bs.modal', function () {
-    //     console.log("hii");
-    //     $("html").css("margin-right", "-15px");
-    // });
+    $("#password-child").keypress(function(e){
+        if (e.which == 13){
+        $("#password-child-enter").click();
+        }
+    })
 });
 
 String.prototype.hashCode = function(){
@@ -93,4 +100,10 @@ var showParentBoard = function(){
     $("#garbage-can").show();
     $("#paintbrush").show();
     $("#board-switcher").show();
+}
+
+var setSizes = function(){
+    var corkboardTdWidth = $("#corkboard-td").width();
+    $("#corkboard-border").css("width", corkboardTdWidth);
+    $("#corkboard").css("width", corkboardTdWidth - 30);
 }

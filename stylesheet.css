@@ -144,7 +144,7 @@ body {
   height: 100px;
   width: 100px;
   bottom: 15px;
-  right: -25px;
+  right: 10px;
   z-index: 4;
 }
 
@@ -172,7 +172,7 @@ body {
 #paintbrush{
   height: 65px;
   top: 55px;
-  right: -10px;
+  right: 20px;
   position: absolute;
   z-index: 4;
 }
@@ -282,7 +282,7 @@ textarea {
 
 
 /* Below makes the modal not shift everything to the left when it's opened.
-Source: http://stackoverflow.com/questions/19337238/twitter-bootstrap-modal-pushes-html-content-to-the-left*/
+Source: http://stackoverflow.com/questions/19337238/twitter-bootstrap-modal-pushes-html-content-to-the-left
 html {
   overflow: hidden;
   height: 100%;
@@ -294,4 +294,4 @@ body {
 
 .modal-open {
  overflow: auto; 
-}
+} */

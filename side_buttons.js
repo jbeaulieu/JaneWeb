@@ -11,8 +11,7 @@ $(document).ready(function() {
   })
 
   // This is the button INSIDE the add website modal
-  $("#add-website-btn").submit(function (e) {
-    console.log("clicked add-website");
+  $("#add-website-btn").click(function (e) {
     var url = $("#website-url").val().trim();
     if (urlIsValid(url)){
       $("#website-url").val("");
@@ -20,13 +19,25 @@ $(document).ready(function() {
       $('.draggable').draggable({
         containment: "#corkboard-overlay"
       });
-      $("#add-website-error-msg").text("");
+
+      $("#add-website-modal").modal('hide');
+             
     } else{
-      e.preventDefault();
       $("#add-website-error-msg").text("Please enter a valid URL.");
     }
     
   });
+
+  $("#add-website-modal").on('hide.bs.modal', function(e){
+    $("#add-website-error-msg").text("");  
+  })
+
+  $("#website-url").keypress(function(e){
+    if (e.which == 13){
+      $("#add-website-btn").click();
+    }
+  })
+
 
   //clicking the add note button should start to create a new note
   $("#add-note").click(function (e) {

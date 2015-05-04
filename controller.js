@@ -24,28 +24,30 @@ $(document).ready(function() {
     
 	$("#rename-board").click(function (e) {
 		var newName = prompt("Enter new name");
-		var index = boardNames.indexOf(activeUser);
-		if(index !== -1) {
-			boardNames[index] = newName;
-		}
-		
-		var dropDown = document.getElementById('board-switcher');
-		for(i=0; i<dropDown.length; i++)
-		{
-			if(dropDown.options[i].value == activeUser)
-			{
-				dropDown.remove(i);
+		if(newName !== null) {
+			var index = boardNames.indexOf(activeUser);
+			if(index !== -1) {
+				boardNames[index] = newName;
 			}
+			
+			var dropDown = document.getElementById('board-switcher');
+			for(i=0; i<dropDown.length; i++)
+			{
+				if(dropDown.options[i].value == activeUser)
+				{
+					dropDown.remove(i);
+				}
+			}
+			
+			$("." + activeUser).addClass(newName);
+			$("." + activeUser).removeClass(activeUser);
+			
+			document.getElementById("board-name").innerHTML = newName + "'s Board";
+			
+			$("#board-switcher").append("<option>" + newName);
+			document.getElementById("board-switcher").selectedIndex = document.getElementById("board-switcher").length - 1;
+			activeUser = $("#board-switcher").val();
 		}
-		
-		$("." + activeUser).addClass(newName);
-		$("." + activeUser).removeClass(activeUser);
-		
-		document.getElementById("board-name").innerHTML = newName + "'s Board";
-		
-		$("#board-switcher").append("<option>" + newName);
-		document.getElementById("board-switcher").selectedIndex = document.getElementById("board-switcher").length - 1;
-        activeUser = $("#board-switcher").val();
 	});
 	
     //clicking the add new board button should prompt for the name of the new board

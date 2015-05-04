@@ -215,15 +215,16 @@ body {
 
 .note{
 	background: url('images/stickyNoteImage.png');
-  background-size: 150px 150px;
+  background-size: 160px 160px;
   background-repeat: no-repeat;
-	width: 150px;
-	height: 150px;
+	width: 160px;
+	height: 160px;
 	position: absolute;
-	padding: 10px 15px 10px 15px;
+	padding: 5px 5px 5px 5px;
 	z-index: 2;
   word-wrap: break-word;
   white-space: pre-wrap;
+  font-family: "Andale Mono", monospace;
 }
 
 .list {
@@ -233,13 +234,30 @@ body {
   width: 250px;
 	height: 300px;
 	position: absolute;
-	padding: 1px 40px 1px 30px;
+	padding: 1px 20px 1px 30px;
 	z-index: 2;
   word-wrap: break-word;
 }
 
+.list_Title{
+  font-size: 14px;
+  max-height: 24px;
+  max-width: 170px;
+  margin-top: 5px;
+}
+
+.list_inputs{
+  width: 160px;
+  /*margin: 5px 5px 5px 5px;*/
+  position: absolute;
+}
+
 #photo {
 	position: absolute;
+}
+
+.mono_font{
+  font-family: "Andale Mono", monospace;
 }
 
 form {

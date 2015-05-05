@@ -139,7 +139,6 @@ var createPhotoObject = function(url){
 }
 
 var offsetObject = function(object){
-  console.log(object.width());
   userOffset = boardOffsets[activeUser];
 
   var obj = {};
@@ -152,7 +151,6 @@ var offsetObject = function(object){
     obj.left = 15;
     // check to see if it'll fit height-wise
     if (userOffset.top + object.height() <= $("#corkboard").height()){
-      console.log("less than corkboard")
       obj.top = userOffset.top + 200;
     } else{
       obj.top = 15;

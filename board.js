@@ -88,6 +88,7 @@ var showChildBoard = function(){
     $("#board-name").text("Hi " + childName + "!");
     $("#view-child-board").hide();
     $("#add-board").hide()
+	$("#rename-board").hide()
     $("#view-parent-board").show();
     $("#corkboard-holder").offset({top: corkboardOffset.top, left: corkboardOffset.left});
     $("#garbage-can").hide();
@@ -99,6 +100,7 @@ var showParentBoard = function(){
     isParent[0]=true;
     $(".add-button").show();
     $("#add-board").show()
+	$("#rename-board").show()
     $("#view-child-board").show();
     $("#view-parent-board").hide();
     $("#board-name").text(childName + "'s Board");

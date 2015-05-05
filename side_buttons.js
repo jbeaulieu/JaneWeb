@@ -134,25 +134,37 @@ var createChecklistObject = function(list_id){
 }
 
 var createPhotoObject = function(url){
-  var photo = "<div class='button draggable "+activeUser+"' id='photo'><img src='images/vacation.jpg' height='130'/></div>";
-  return photo;
+  var photo = $("<div class='button draggable photo-container "+activeUser+"'><img class='photo' src='images/vacation.jpg' height='130'/></div>");
+  return offsetObject(photo);
 }
 
 var offsetObject = function(object){
+  console.log(object.width());
   userOffset = boardOffsets[activeUser];
-  object.offset({left:userOffset.left, top:userOffset.top});
-  updateOffset(userOffset);
-  return object;
-}
 
-var updateOffset = function(offset){
-  if (offset.left + 450 >= $("#corkboard").width()){
-    offset.left = 20;
-    offset.top +=220;
-  } else{
-    offset.left += 220;
+  var obj = {};
+
+  if (userOffset.left + object.width() <= $("#corkboard").width()){
+    // if it'll fit width-wise, set it
+    obj.left = userOffset.left; 
+    obj.top = userOffset.top;
+  } else{ 
+    obj.left = 15;
+    // check to see if it'll fit height-wise
+    if (userOffset.top + object.height() <= $("#corkboard").height()){
+      console.log("less than corkboard")
+      obj.top = userOffset.top + 200;
+    } else{
+      obj.top = 15;
+    }
   }
-  //offsettop?
+
+  userOffset.left = obj.left + object.width() + 20;
+  userOffset.top = obj.top;
+  
+  object.offset({left:obj.left, top:obj.top});
+  
+  return object;
 }
 
 var urlIsValid = function(url){

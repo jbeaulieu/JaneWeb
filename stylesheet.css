@@ -260,8 +260,14 @@ body {
   position: absolute;
 }
 
-#photo {
+.photo {
 	position: absolute;
+  width: 180px;
+}
+
+.photo-container {
+  position:absolute;
+  width: 180px;
 }
 
 .mono_font{
@@ -307,18 +313,3 @@ textarea {
     resize: none;
 }
 
-
-/* Below makes the modal not shift everything to the left when it's opened.
-Source: http://stackoverflow.com/questions/19337238/twitter-bootstrap-modal-pushes-html-content-to-the-left
-html {
-  overflow: hidden;
-  height: 100%;
-}
-body {
-  overflow: auto;
-  height: 100%;
-}
-
-.modal-open {
- overflow: auto; 
-} */

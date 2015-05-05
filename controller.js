@@ -9,10 +9,10 @@ $(document).ready(function() {
     var newName = "Jane";
     document.getElementById("board-name").innerHTML = newName + "'s Board";
     boardNames.push(newName);
-    boardOffsets[newName]= {left:20, top:20};
+    boardOffsets[newName]= {left:10, top:10};
     $("#board-switcher").append("<option>" + newName);
-    // $("#board-switcher").append('<li><a href="#">' + newName + '</a></li>')
-	activeUser = newName;
+    
+	  activeUser = newName;
 
     $(window).resize(function (e) {
       var border = $("#corkboard-border");
@@ -66,12 +66,10 @@ $(document).ready(function() {
         boardNames.push(newName);
         boardOffsets[newName]= {left:20, top:20};
         $("#board-switcher").append("<option>" + newName);
-        // $("#board-switcher").append('<li><a href="#">' + newName + '</a></li>')
         
         if(boardNames.length > 1)
         {
           document.getElementById("board-switcher").style.visibility = "visible";
-          // document.getElementById("board-select-text").style.visibility = "visible";
         }
         document.getElementById("board-switcher").selectedIndex = document.getElementById("board-switcher").length - 1;
         activeUser = $("#board-switcher").val();

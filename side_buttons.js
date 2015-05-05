@@ -79,10 +79,6 @@ $(document).ready(function() {
         addChecklistItem(list_id, isParent);
         item_id_num+=1;
       }
-      //if the input is not visible, you should not be able to write in it.
-      if ($("#"+list_id+"Items li").length >=12){
-        $('#'+list_id+'input').val("");
-      }
     });
     list_id_num +=1;
     $("body").on('click', '#'+list_id+'Items a', function () {
@@ -131,10 +127,10 @@ var createChecklistObject = function(list_id){
 
   var checklist = $("<div class='button draggable list "+activeUser+"' id='"+list_id+"'>"+
                       "<h4 id='"+list_id+"Title' class='mono_font'> title </h4>" +
-                      "<ul id='"+list_id+"Items' class='list-unstyled mono_font'> </ul>" +
-                      "<div id='"+list_id+"editableItems' class='list_inputs'><input maxlength='17' id = '"+list_id+"input' type='text' class='form-control' "+
+                      "<ul id='"+list_id+"Items' class='list-unstyled mono_font' font-size='11px'></ul>" +
+                      "<div id='"+list_id+"editableItems' class='list_inputs'><input maxlength='15' id = '"+list_id+"input' type='text' class='form-control' "+
                       "placeholder='New item' name="+list_id+"'item'>"+
-                      "<button type='submit' id='"+list_id+"add-checklist-item' class='btn btn btn-primary'>Add</button></div></div>");
+                      "<button type='submit' id='"+list_id+"add-checklist-item' class='btn btn btn-primary addButton'>Add</button></div></div>");
   return offsetObject(checklist);
 }
 

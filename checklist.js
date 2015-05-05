@@ -14,7 +14,7 @@ var listTitleClicked = function(list_id, isParent){
 	    var left = $("#"+list_id+"Title").css("left");
 	    var titleText = $("#"+list_id+"Title").html();
 
-	    var editableTitleText = $("<textarea id='"+ list_id + "Title' class='list_Title mono_font' maxlength='17'></textarea>");
+	    var editableTitleText = $("<textarea id='"+ list_id + "Title' class='list_Title mono_font' maxlength='13'></textarea>");
 
 	    $("#"+list_id+"Title").replaceWith(editableTitleText);
 	    $("#"+list_id+"Title").css({"top":top, "left":left});
@@ -53,11 +53,9 @@ var editableListTitleBlurred = function(list_id, isParent){
 //The area right below the list has been clicked to open the edit of the list 
 var listItemsClicked = function(list_id, isParent){
 	if (isParent[0] == true){
-		if ($("#"+list_id+"Items li").length <12){
-			$('#'+list_id+'input').focus();
-			$('#'+list_id+'input').css("visibility", "visible");
-			$('#'+list_id+'add-checklist-item').css("visibility", "visible");
-		}
+		$('#'+list_id+'input').focus();
+		$('#'+list_id+'input').css("visibility", "visible");
+		$('#'+list_id+'add-checklist-item').css("visibility", "visible");
 		$("#"+list_id+"input").on("blur",function (event, ui) {
 			editableListItemsBlurred(list_id, isParent);
 	    });
@@ -79,17 +77,11 @@ var editableListItemsBlurred = function(list_id, isParent){
 //the add button is clicked
 var addChecklistItem = function (list_id, isParent){
 	if (isParent[0] == true) {
-		//check that the item to add is not an empty string and that the list is shorter than 12 items
-		if ($("#"+list_id+"input").val() != "" && $("#"+list_id+"Items li").length <12){
+		//check that the item to add is not an empty string 
+		if ($("#"+list_id+"input").val() != ""  ){
 			$("<li>" + $("#"+list_id+"input").val() + " <a id='deleter' href='#' class='close' aria-hidden='true'>&times;</a></li>").appendTo("#"+list_id+"Items")
 			$("#"+list_id+"input").val("");
 			$("#"+list_id+"input").focus();
-		}
-		//If the list is too long, force a blur of the input field (causing the add-ability to go away)
-		if ($("#"+list_id+"Items li").length >=12){
-			$("#"+list_id+"input").blur();
-			$('#'+list_id+'input').val("");
-			editableListItemsBlurred(list_id, isParent);
-		}
+		};
 	};
 }

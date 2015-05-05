@@ -233,14 +233,16 @@ body {
 
 .list {
 	background: url('images/paperImage.png');
-  background-size: 250px 250px;
+  background-size: 200px 200px;
   background-position: -8px -8px;
-  width: 250px;
-	height: 300px;
+  width: 175px;
+	height: 200px;
 	position: absolute;
-	padding: 1px 20px 1px 30px;
+	padding-left: 20px;
 	z-index: 2;
-  word-wrap: break-word;
+  /*word-wrap: break-word;*/
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .list_Title{
@@ -251,9 +253,10 @@ body {
 }
 
 .list_inputs{
-  width: 160px;
-  height: 25px;
+  width: 135px;
+  height: 170px;
   margin: 5px 5px 5px 5px;
+  font-size: 16px;
   position: absolute;
 }
 
@@ -263,6 +266,12 @@ body {
 
 .mono_font{
   font-family: "Andale Mono", monospace;
+}
+
+.addButton {
+  width: 125px;
+  height: 30px;
+  margin: 5px 5px 5px 5px;
 }
 
 form {
@@ -283,13 +292,11 @@ li {
   display: table;
   float: center;
   list-style-type: none;
-  margin-right: 50px;
-
 }
 
 #deleter {
   position: absolute;
-  right: 43px;
+  right: 10px;
 }
 
 .error-message{

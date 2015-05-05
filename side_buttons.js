@@ -89,7 +89,6 @@ $(document).ready(function() {
 
   //clicking the add photo button will pop up a screen to pick a photo from the screen
   $("#add-photo-btn").click(function (e) {
-    console.log("clicked add-photo");
     //should createPhotoObject
     var url = $("input[name=img]").val();
     $("input[name=img]").val("");

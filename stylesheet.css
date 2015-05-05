@@ -234,7 +234,7 @@ body {
 .list {
 	background: url('images/paperImage.png');
   background-size: 200px 200px;
-  background-position: -8px -8px;
+  background-position: -8px -40px;
   width: 175px;
 	height: 200px;
 	position: absolute;
@@ -254,7 +254,7 @@ body {
 
 .list_inputs{
   width: 135px;
-  height: 170px;
+  height: 80px;
   margin: 5px 5px 5px 5px;
   font-size: 16px;
   position: absolute;

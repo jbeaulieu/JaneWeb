@@ -49,7 +49,7 @@ $(document).ready(function(){
     })
 
     $("#password-child-enter").click(function(){
-        password = $("#password-child").val();
+        var password = $("#password-child").val();
         if (password.hashCode() == passwordHash){
             $("#password-child").val("");
             $("#enter-password-modal").modal('hide');

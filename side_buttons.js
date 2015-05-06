@@ -166,7 +166,7 @@ var offsetObject = function(object){
 }
 
 var urlIsValid = function(url){
-  if (url.contains(" ")){
+  if (url.indexOf(" ") > -1){
     return false
   }
   var splitUrl = url.split(".");

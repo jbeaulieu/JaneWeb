@@ -134,7 +134,7 @@ var createChecklistObject = function(list_id){
 }
 
 var createPhotoObject = function(url){
-  var photo = $("<div class='button draggable photo-container "+activeUser+"'><img class='photo' src='images/vacation.jpg' height='130'/></div>");
+  var photo = $("<div class='button photo-container "+activeUser+"'><img class='photo draggable' src='images/vacation.jpg' height='130'/></div>");
   return offsetObject(photo);
 }
 

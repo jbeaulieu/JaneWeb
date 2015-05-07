@@ -8,7 +8,9 @@ $(document).ready(function(){
     //border stuff
     var border = $("#corkboard-border");
     var corkboard = $("#corkboard");
+    var corkboardOverlay = $("#corkboard-overlay");
     border.css("height", corkboard.height() + 30);
+    corkboardOverlay.css("width", corkboard.width() - 30);
     setSizes();
 
     $(window).resize(function() { 

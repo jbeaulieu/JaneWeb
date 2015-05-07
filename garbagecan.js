@@ -15,6 +15,7 @@ $(document).ready(function(){
         hoverClass: "garbage2",
         drop: function(event, ui){
           ui.draggable.remove();
+          $(this).addClass("garbage1");
         }
     });
 });

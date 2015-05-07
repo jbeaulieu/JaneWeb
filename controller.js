@@ -17,9 +17,12 @@ $(document).ready(function() {
     $(window).resize(function (e) {
       var border = $("#corkboard-border");
       var corkboard = $("#corkboard");
+      var corkboardOverlay = $("#corkboard-overlay")
 
       border.css("height", corkboard.height() + 30);
       border.css("width", corkboard.width() + 30);
+      corkboardOverlay.css("height", corkboard.height());
+      corkboardOverlay.css("width", corkboard.width());
     });
     
 	$("#rename-board").click(function (e) {
